@@ -4,180 +4,155 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>БудЕксперт — Договір</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #0d1b2a;
-    --navy2: #1a2e45;
-    --gold: #c9a84c;
-    --gold2: #e8c97a;
-    --white: #f5f2eb;
-    --gray: #8a9bb0;
-    --light: #eef2f7;
-    --danger: #c0392b;
-    --success: #1a6b4a;
-    --radius: 14px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  html, body { min-height: 100%; background: var(--navy); font-family: 'Lato', sans-serif; color: var(--white); }
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+:root {
+  --bg: #0f1923;
+  --card: #1a2535;
+  --card2: #1f2e40;
+  --gold: #f5c842;
+  --gold2: #e0b030;
+  --white: #ffffff;
+  --gray: #8a9bb0;
+  --light: #c8d6e5;
+  --danger: #e74c3c;
+  --radius: 14px;
+}
+html, body { min-height: 100%; background: var(--bg); font-family: 'Montserrat', sans-serif; color: var(--white); }
 
-  /* ─── HEADER ─── */
-  .header {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
-    padding: 24px 20px 20px;
-    text-align: center;
-    border-bottom: 2px solid var(--gold);
-    position: sticky; top: 0; z-index: 10;
-  }
-  .logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); letter-spacing: 1px; }
-  .logo span { color: var(--white); }
+/* HEADER */
+.header {
+  background: var(--card);
+  padding: 14px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(245,200,66,.2);
+  position: sticky; top: 0; z-index: 10;
+}
+.header-logo { display: flex; align-items: center; gap: 10px; }
+.header-icon { width: 38px; height: 38px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.header-name { font-weight: 800; font-size: 15px; color: var(--white); }
+.header-phone { font-size: 11px; color: var(--gray); margin-top: 1px; }
+.header-badge { background: transparent; border: 1.5px solid var(--gold); color: var(--gold); padding: 6px 14px; border-radius: 8px; font-size: 11px; font-weight: 800; letter-spacing: 1px; }
 
-  /* ─── PROGRESS ─── */
-  .progress {
-    display: flex; align-items: center; justify-content: center;
-    gap: 8px; padding: 16px 20px 0; margin-bottom: 4px;
-  }
-  .step-dot {
-    width: 28px; height: 28px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 700; transition: all .3s;
-    border: 2px solid var(--gray); color: var(--gray);
-  }
-  .step-dot.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,.12); }
-  .step-dot.done { border-color: var(--success); background: var(--success); color: #fff; }
-  .step-line { flex: 1; height: 2px; background: var(--gray); max-width: 40px; transition: background .3s; }
-  .step-line.done { background: var(--success); }
-  .step-label { text-align: center; font-size: 11px; color: var(--gray); padding: 0 20px 16px; }
+/* PROGRESS */
+.progress { display: flex; align-items: center; padding: 14px 18px 0; gap: 6px; }
+.step-dot { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; border: 2px solid rgba(255,255,255,.2); color: var(--gray); transition: all .3s; }
+.step-dot.active { border-color: var(--gold); color: var(--gold); }
+.step-dot.done { border-color: var(--gold); background: var(--gold); color: var(--bg); }
+.step-line { flex: 1; height: 1px; background: rgba(255,255,255,.15); transition: background .3s; }
+.step-line.done { background: var(--gold); }
+.step-label { text-align: center; font-size: 11px; color: var(--gray); padding: 6px 18px 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
 
-  /* ─── CARD ─── */
-  .card {
-    background: var(--navy2);
-    border-radius: var(--radius);
-    margin: 16px;
-    padding: 22px 18px;
-    border: 1px solid rgba(201,168,76,.2);
-    box-shadow: 0 8px 32px rgba(0,0,0,.4);
-  }
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px; color: var(--gold);
-    margin-bottom: 18px; padding-bottom: 12px;
-    border-bottom: 1px solid rgba(201,168,76,.2);
-  }
+/* CARD */
+.card { background: var(--card); border-radius: var(--radius); margin: 0 12px 12px; padding: 18px 16px; border: 1px solid rgba(245,200,66,.12); }
+.section-title { font-size: 11px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(245,200,66,.15); }
 
-  /* ─── FIELDS ─── */
-  .field { margin-bottom: 16px; }
-  label { display: block; font-size: 12px; color: var(--gold2); font-weight: 700; letter-spacing: .8px; text-transform: uppercase; margin-bottom: 6px; }
-  input, select, textarea {
-    width: 100%; padding: 13px 15px;
-    background: rgba(255,255,255,.06);
-    border: 1.5px solid rgba(255,255,255,.12);
-    border-radius: 10px; color: var(--white);
-    font-size: 15px; font-family: 'Lato', sans-serif;
-    outline: none; transition: border-color .2s;
-    -webkit-appearance: none;
-  }
-  input:focus, select:focus, textarea:focus { border-color: var(--gold); background: rgba(201,168,76,.06); }
-  input::placeholder, textarea::placeholder { color: var(--gray); }
-  select option { background: var(--navy2); color: var(--white); }
-  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+/* FIELDS */
+.field { margin-bottom: 14px; }
+label { display: block; font-size: 10px; color: var(--gray); font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+input, select, textarea {
+  width: 100%; padding: 13px 14px;
+  background: var(--card2);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px; color: var(--white);
+  font-size: 15px; font-family: 'Montserrat', sans-serif;
+  outline: none; transition: border-color .2s;
+  -webkit-appearance: none;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+input::placeholder, textarea::placeholder { color: rgba(255,255,255,.25); font-size: 13px; }
+select option { background: var(--card); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-  /* ─── CONTRACT TEXT ─── */
-  .contract-box {
-    background: #fff; color: #1a1a1a;
-    border-radius: 10px; padding: 20px 16px;
-    font-size: 13px; line-height: 1.7;
-    max-height: 55vh; overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    border: 2px solid var(--gold);
-  }
-  .contract-box h2 { font-size: 15px; text-align: center; margin-bottom: 4px; }
-  .contract-box h3 { font-size: 13px; font-weight: 700; margin: 14px 0 6px; text-transform: uppercase; }
-  .contract-box .field-line { border-bottom: 1px solid #333; display: inline-block; min-width: 120px; }
-  .contract-box p { margin-bottom: 8px; }
-  .contract-box .highlight { background: #fff3cd; padding: 2px 4px; border-radius: 3px; font-weight: 700; }
-  .scroll-hint { text-align: center; font-size: 11px; color: var(--gray); padding: 8px 0 0; }
+/* КАДАСТРОВИЙ — поля окремо */
+.kn-grid { display: grid; grid-template-columns: 2.2fr 1fr 1.2fr 1.2fr; gap: 6px; align-items: end; }
+.kn-grid input { text-align: center; font-size: 13px; padding: 12px 6px; letter-spacing: .5px; }
+.kn-sep { color: var(--gold); font-size: 18px; font-weight: 800; text-align: center; line-height: 44px; }
+.kn-labels { display: grid; grid-template-columns: 2.2fr 1fr 1.2fr 1.2fr; gap: 6px; margin-bottom: 4px; }
+.kn-labels span { font-size: 9px; color: var(--gray); text-align: center; font-weight: 700; letter-spacing: .5px; }
+.kn-hint { font-size: 10px; color: var(--gray); margin-top: 5px; }
 
-  /* ─── AGREE CHECK ─── */
-  .agree-row {
-    display: flex; align-items: flex-start; gap: 12px;
-    background: rgba(201,168,76,.08); border-radius: 10px;
-    padding: 14px; margin-top: 14px;
-    border: 1px solid rgba(201,168,76,.25);
-  }
-  .agree-row input[type=checkbox] {
-    width: 22px; height: 22px; min-width: 22px;
-    border-radius: 5px; cursor: pointer; padding: 0;
-    accent-color: var(--gold);
-  }
-  .agree-row label { font-size: 13px; color: var(--white); text-transform: none; letter-spacing: 0; font-weight: 400; cursor: pointer; }
-  .agree-row label strong { color: var(--gold); }
+/* CONTRACT */
+.contract-box {
+  background: #fff; color: #1a1a1a;
+  border-radius: 10px; padding: 16px 14px;
+  font-size: 13px; line-height: 1.75;
+  max-height: 52vh; overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid rgba(245,200,66,.3);
+}
+.contract-box h2 { font-size: 14px; text-align: center; margin-bottom: 4px; color: #1a5c1a; }
+.contract-box h3 { font-size: 11px; font-weight: 800; margin: 12px 0 5px; color: #1a5c1a; text-transform: uppercase; letter-spacing: .5px; }
+.contract-box p { margin-bottom: 7px; }
+.contract-box .warn { background: #fff8e1; border-left: 3px solid #f5c842; padding: 7px 10px; border-radius: 4px; font-weight: 700; font-size: 12px; margin: 8px 0; }
+.scroll-hint { text-align: center; font-size: 11px; color: var(--gray); padding: 8px 0 4px; }
 
-  /* ─── SIGNATURE ─── */
-  .sig-wrap {
-    background: #fff; border-radius: 10px;
-    border: 2px dashed var(--gold); position: relative;
-    overflow: hidden;
-  }
-  #sigCanvas {
-    display: block; touch-action: none;
-    width: 100%; height: 200px; cursor: crosshair;
-  }
-  .sig-hint {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    font-size: 13px; color: #aaa; pointer-events: none; white-space: nowrap;
-    transition: opacity .3s;
-  }
-  .sig-clear {
-    background: none; border: none; color: var(--gray);
-    font-size: 12px; cursor: pointer; padding: 6px 0;
-    text-decoration: underline; display: block; margin-top: 6px;
-  }
+/* AGREE */
+.agree-box {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: rgba(245,200,66,.06); border-radius: 10px;
+  padding: 14px; border: 1.5px solid rgba(245,200,66,.2);
+  cursor: pointer; margin-top: 14px; transition: border-color .2s;
+}
+.agree-box.checked { border-color: var(--gold); }
+.check-icon { width: 24px; height: 24px; min-width: 24px; border: 2px solid var(--gray); border-radius: 6px; background: var(--card2); display: flex; align-items: center; justify-content: center; font-size: 15px; transition: all .2s; flex-shrink: 0; margin-top: 1px; }
+.check-icon.on { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+.agree-text { font-size: 13px; color: var(--light); line-height: 1.5; font-weight: 500; }
+.agree-text strong { color: var(--gold); }
 
-  /* ─── BUTTONS ─── */
-  .btn {
-    display: block; width: 100%; padding: 16px;
-    border-radius: 12px; border: none; cursor: pointer;
-    font-size: 16px; font-weight: 700; font-family: 'Lato', sans-serif;
-    letter-spacing: .5px; transition: all .2s; margin-top: 20px;
-  }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--gold) 0%, #b8882a 100%);
-    color: var(--navy); box-shadow: 0 4px 20px rgba(201,168,76,.35);
-  }
-  .btn-primary:active { transform: scale(.97); }
-  .btn-primary:disabled { opacity: .4; cursor: not-allowed; transform: none; }
-  .btn-ghost { background: transparent; border: 1.5px solid var(--gray); color: var(--gray); margin-top: 10px; }
-  .btn-ghost:active { background: rgba(255,255,255,.05); }
+/* SIGNATURE */
+.sig-wrap { background: #fff; border-radius: 10px; border: 2px dashed rgba(245,200,66,.4); position: relative; overflow: hidden; }
+.sig-wrap.active { border-color: var(--gold); }
+#sigCanvas { display: block; touch-action: none; width: 100%; height: 180px; cursor: crosshair; }
+.sig-hint { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 13px; color: #aaa; pointer-events: none; white-space: nowrap; transition: opacity .3s; }
+.sig-clear { background: none; border: none; color: var(--danger); font-size: 12px; cursor: pointer; padding: 6px 0; text-decoration: underline; font-family: 'Montserrat', sans-serif; font-weight: 700; }
 
-  /* ─── SUCCESS ─── */
-  .success-screen { text-align: center; padding: 40px 20px; }
-  .success-icon { font-size: 72px; margin-bottom: 20px; animation: pop .4s ease; }
-  @keyframes pop { 0%{transform:scale(0)} 70%{transform:scale(1.1)} 100%{transform:scale(1)} }
-  .success-screen h2 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--gold); margin-bottom: 12px; }
-  .success-screen p { color: var(--gray); font-size: 14px; line-height: 1.6; }
+/* BUTTONS */
+.btn { display: block; width: 100%; padding: 15px; border-radius: 10px; border: none; cursor: pointer; font-size: 14px; font-weight: 800; font-family: 'Montserrat', sans-serif; letter-spacing: 1px; text-transform: uppercase; transition: all .15s; margin-top: 16px; }
+.btn-primary { background: var(--gold); color: var(--bg); box-shadow: 0 4px 16px rgba(245,200,66,.3); }
+.btn-primary:active { transform: scale(.97); background: var(--gold2); }
+.btn-primary:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+.btn-ghost { background: transparent; border: 1.5px solid rgba(255,255,255,.2); color: var(--gray); margin-top: 8px; }
 
-  /* ─── ALERT ─── */
-  .alert { background: rgba(192,57,43,.15); border: 1px solid rgba(192,57,43,.4); border-radius: 10px; padding: 12px 14px; font-size: 13px; color: #e74c3c; margin-top: 10px; display: none; }
-  .alert.show { display: block; }
+/* ALERT */
+.alert { background: rgba(231,76,60,.12); border: 1px solid rgba(231,76,60,.4); border-radius: 8px; padding: 10px 14px; font-size: 13px; color: var(--danger); margin-top: 10px; display: none; font-weight: 700; }
+.alert.show { display: block; }
 
-  /* ─── LOADING ─── */
-  .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,.3); border-top-color: var(--navy); border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: 8px; }
-  @keyframes spin { to { transform: rotate(360deg); } }
+/* SUCCESS */
+.success-screen { text-align: center; padding: 40px 20px; }
+.success-icon { font-size: 64px; margin-bottom: 16px; animation: pop .4s ease; }
+@keyframes pop { 0%{transform:scale(0)} 70%{transform:scale(1.1)} 100%{transform:scale(1)} }
+.success-screen h2 { font-size: 22px; font-weight: 800; color: var(--gold); margin-bottom: 10px; }
+.success-screen p { color: var(--gray); font-size: 14px; line-height: 1.8; }
 
-  .info-badge { background: rgba(201,168,76,.1); border-left: 3px solid var(--gold); padding: 10px 12px; border-radius: 6px; font-size: 12px; color: var(--gray); margin-top: -8px; margin-bottom: 16px; }
+.spinner { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(0,0,0,.2); border-top-color: var(--bg); border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: 6px; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ─── SCREEN TRANSITIONS ─── */
-  .screen { display: none; animation: fadeIn .3s ease; }
-  .screen.active { display: block; }
-  @keyframes fadeIn { from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)} }
+.info-box { background: rgba(245,200,66,.08); border-left: 3px solid var(--gold); padding: 10px 12px; border-radius: 6px; font-size: 12px; color: var(--gray); margin-bottom: 14px; font-weight: 600; }
+
+.summary-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 13px; gap: 8px; }
+.summary-row:last-child { border: none; }
+.sum-label { color: var(--gray); font-weight: 600; white-space: nowrap; }
+.sum-val { font-weight: 700; color: var(--white); text-align: right; }
+
+.screen { display: none; animation: fadeIn .25s ease; }
+.screen.active { display: block; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <div class="header">
-  <div class="logo">БУД<span>ЕКСПЕРТ</span></div>
+  <div class="header-logo">
+    <div class="header-icon">🏠</div>
+    <div>
+      <div class="header-name">БудЕксперт</div>
+      <div class="header-phone">096 121 09 06</div>
+    </div>
+  </div>
+  <div class="header-badge">ДОГОВІР</div>
 </div>
 
 <!-- PROGRESS -->
@@ -192,20 +167,18 @@
 </div>
 <div class="step-label" id="stepLabel">Дані замовника</div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 1 — ДАНІ ЗАМОВНИКА
-══════════════════════════════════════ -->
+<!-- ══ ЕКРАН 1 — ДАНІ ══ -->
 <div class="screen active" id="screen1">
   <div class="card">
-    <div class="card-title">📋 Ваші дані</div>
+    <div class="section-title">👤 Ваші дані</div>
 
     <div class="field">
       <label>ПІБ повністю *</label>
-      <input type="text" id="name" placeholder="Іванченко Іван Іванович" autocomplete="name">
+      <input type="text" id="name" placeholder="Іваненко Іван Іванович" autocomplete="name">
     </div>
     <div class="field">
       <label>Телефон *</label>
-      <input type="tel" id="phone" placeholder="+38 0__ ___ __ __" autocomplete="tel">
+      <input type="tel" id="phone" placeholder="+38 096 121 09 06" autocomplete="tel">
     </div>
     <div class="row2">
       <div class="field">
@@ -214,22 +187,37 @@
       </div>
       <div class="field">
         <label>Номер паспорта</label>
-        <input type="text" id="passN" placeholder="123456" maxlength="9">
+        <input type="text" id="passN" placeholder="123456" maxlength="9" inputmode="numeric">
       </div>
     </div>
     <div class="field">
       <label>ІПН / РНОКПП</label>
       <input type="text" id="ipn" placeholder="1234567890" maxlength="12" inputmode="numeric">
     </div>
+  </div>
 
-    <div class="card-title" style="margin-top:20px">🗺️ Об'єкт</div>
+  <div class="card">
+    <div class="section-title">🗺️ Об'єкт</div>
 
     <div class="field">
       <label>Кадастровий номер *</label>
-      <input type="text" id="kn" placeholder="3220000000:00:000:0000" inputmode="numeric">
+      <div class="kn-labels">
+        <span>KOATUU (10 цифр)</span>
+        <span>поле</span>
+        <span>квартал</span>
+        <span>ділянка</span>
+      </div>
+      <div class="kn-grid">
+        <input type="text" id="kn1" placeholder="3222487400" maxlength="10" inputmode="numeric">
+        <input type="text" id="kn2" placeholder="04" maxlength="3" inputmode="numeric" style="text-align:center">
+        <input type="text" id="kn3" placeholder="001" maxlength="3" inputmode="numeric" style="text-align:center">
+        <input type="text" id="kn4" placeholder="0022" maxlength="4" inputmode="numeric" style="text-align:center">
+      </div>
+      <div class="kn-hint">Формат: 3222487400 : 04 : 001 : 0022</div>
     </div>
+
     <div class="field">
-      <label>Адреса / місцезнаходження *</label>
+      <label>Адреса / населений пункт *</label>
       <input type="text" id="address" placeholder="с. Назва, Білоцерківський р-н">
     </div>
     <div class="row2">
@@ -239,7 +227,7 @@
           <option value="1">1 ділянка</option>
           <option value="2">2 ділянки</option>
           <option value="3">3 ділянки</option>
-          <option value="4">4+ ділянки</option>
+          <option value="4+">4+ ділянки</option>
         </select>
       </div>
       <div class="field">
@@ -247,8 +235,11 @@
         <input type="text" id="area" placeholder="0.25" inputmode="decimal">
       </div>
     </div>
+  </div>
 
-    <div class="card-title" style="margin-top:20px">💰 Оплата</div>
+  <div class="card">
+    <div class="section-title">💰 Оплата</div>
+    <div class="info-box">Залишок сплачується до початку роботи безпосередньо на місці</div>
     <div class="row2">
       <div class="field">
         <label>Сума договору (грн) *</label>
@@ -259,118 +250,98 @@
         <input type="number" id="advanceSum" placeholder="1750" inputmode="numeric">
       </div>
     </div>
-    <div class="info-badge">💡 Залишок = Сума − Аванс. Оплачується до початку роботи на місці.</div>
-
-    <div class="alert" id="alert1">Заповніть обов'язкові поля (*)</div>
-    <button class="btn btn-primary" onclick="goStep2()">Далі → Переглянути договір</button>
+    <div class="alert" id="alert1">Заповніть усі обов'язкові поля (*)</div>
+    <button class="btn btn-primary" onclick="goStep2()">ДАЛІ → ПЕРЕГЛЯНУТИ ДОГОВІР</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 2 — ДОГОВІР
-══════════════════════════════════════ -->
+<!-- ══ ЕКРАН 2 — ДОГОВІР ══ -->
 <div class="screen" id="screen2">
   <div class="card">
-    <div class="card-title">📄 Договір</div>
-    <p style="font-size:12px;color:var(--gray);margin-bottom:12px">Ознайомтеся з умовами та прокрутіть до кінця</p>
-
+    <div class="section-title">📄 Договір</div>
     <div class="contract-box" id="contractText"></div>
-    <div class="scroll-hint">↕ прокрутіть договір</div>
+    <div class="scroll-hint">↕ прокрутіть договір до кінця</div>
 
-    <div class="agree-row">
-      <input type="checkbox" id="agreeCheck">
-      <label for="agreeCheck">Я ознайомився(-лась) з умовами договору та <strong>погоджуюся з усіма пунктами</strong>, включаючи порядок оплати та умови авансу.</label>
+    <div class="agree-box" id="agreeBox" onclick="toggleAgree()">
+      <div class="check-icon" id="checkIcon"></div>
+      <div class="agree-text">Я ознайомився(-лась) з умовами договору та <strong>погоджуюся з усіма пунктами</strong>, включаючи порядок оплати та умови авансу</div>
     </div>
 
-    <div class="alert" id="alert2">Підтвердіть ознайомлення з договором</div>
-    <button class="btn btn-primary" onclick="goStep3()">Далі → Підписати</button>
-    <button class="btn btn-ghost" onclick="goStep(1)">← Назад</button>
+    <div class="alert" id="alert2">Підтвердіть ознайомлення з договором ☝️</div>
+    <button class="btn btn-primary" onclick="goStep3()">ДАЛІ → ПІДПИСАТИ</button>
+    <button class="btn btn-ghost" onclick="goStep(1)">← НАЗАД</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 3 — ПІДПИС
-══════════════════════════════════════ -->
+<!-- ══ ЕКРАН 3 — ПІДПИС ══ -->
 <div class="screen" id="screen3">
   <div class="card">
-    <div class="card-title">✍️ Ваш підпис</div>
-    <p style="font-size:13px;color:var(--gray);margin-bottom:16px">Поставте підпис пальцем у полі нижче — так само як на паперовому договорі</p>
-
-    <div class="sig-wrap">
+    <div class="section-title">✍️ Ваш підпис</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:14px;font-weight:600">Підпишіть пальцем у полі нижче — як на паперовому договорі</p>
+    <div class="sig-wrap" id="sigWrap">
       <canvas id="sigCanvas"></canvas>
       <div class="sig-hint" id="sigHint">✍ Підпишіть тут</div>
     </div>
-    <button class="sig-clear" onclick="clearSig()">🗑 Очистити підпис</button>
+    <button class="sig-clear" onclick="clearSig()">🗑 Очистити</button>
 
-    <div class="info-badge" style="margin-top:12px">
-      🔒 Підпис та дані зберігаються і надсилаються тільки Виконавцю
-    </div>
-
-    <div class="alert" id="alert3">Поставте підпис</div>
-    <button class="btn btn-primary" onclick="goStep4()">Далі → Підтвердити</button>
-    <button class="btn btn-ghost" onclick="goStep(2)">← Назад</button>
+    <div class="alert" id="alert3">Поставте підпис ☝️</div>
+    <button class="btn btn-primary" onclick="goStep4()">ДАЛІ → ПІДТВЕРДИТИ</button>
+    <button class="btn btn-ghost" onclick="goStep(2)">← НАЗАД</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 4 — ПІДТВЕРДЖЕННЯ
-══════════════════════════════════════ -->
+<!-- ══ ЕКРАН 4 — ПІДТВЕРДЖЕННЯ ══ -->
 <div class="screen" id="screen4">
   <div class="card">
-    <div class="card-title">✅ Підтвердження</div>
-    <div id="summaryBox" style="font-size:13px;line-height:1.9;color:var(--white)"></div>
+    <div class="section-title">✅ Перевірте дані</div>
+    <div id="summaryBox"></div>
 
-    <div style="margin-top:16px;padding:14px;background:rgba(201,168,76,.08);border-radius:10px;border:1px solid rgba(201,168,76,.25)">
-      <p style="font-size:12px;color:var(--gold2);font-weight:700;margin-bottom:8px">📎 Ваш підпис:</p>
-      <img id="sigPreview" style="background:#fff;border-radius:8px;width:100%;max-height:100px;object-fit:contain">
+    <div style="margin-top:14px">
+      <div class="section-title">✍️ Ваш підпис</div>
+      <img id="sigPreview" style="background:#fff;border-radius:8px;width:100%;max-height:90px;object-fit:contain;border:1px solid rgba(245,200,66,.2)">
     </div>
 
     <div class="alert" id="alert4"></div>
     <button class="btn btn-primary" id="submitBtn" onclick="submitContract()">
-      📨 Надіслати та підписати договір
+      📨 НАДІСЛАТИ ТА ПІДПИСАТИ
     </button>
-    <button class="btn btn-ghost" onclick="goStep(3)">← Назад</button>
+    <button class="btn btn-ghost" onclick="goStep(3)">← НАЗАД</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     SUCCESS
-══════════════════════════════════════ -->
+<!-- ══ SUCCESS ══ -->
 <div class="screen" id="screenSuccess">
   <div class="success-screen">
     <div class="success-icon">🎉</div>
     <h2>Договір підписано!</h2>
-    <p>Дякуємо! Ваш підпис та дані надіслано Виконавцю.<br><br>
-    Очікуйте підтвердження від БудЕксперт у Telegram або за телефоном.<br><br>
-    <strong style="color:var(--gold)">+38 096 121 09 06</strong><br>
-    <span style="color:var(--gray)">@vitaliy_bud</span></p>
-    <div style="margin-top:28px;padding:14px;background:rgba(201,168,76,.08);border-radius:12px;border:1px solid rgba(201,168,76,.2)">
-      <p style="font-size:12px;color:var(--gray)">📅 Дата підписання: <strong id="signDate" style="color:var(--white)"></strong></p>
-    </div>
+    <p>Дякуємо! Ваші дані та підпис надіслано.<br><br>
+    Очікуйте підтвердження від БудЕксперт.<br><br>
+    <strong style="color:var(--gold);font-size:16px">+38 096 121 09 06</strong><br>
+    <span style="color:var(--gray)">@vitaliy_bud</span><br><br>
+    <span id="signDate" style="font-size:12px;color:var(--gray)"></span></p>
   </div>
 </div>
 
 <script>
-// ────────────────────────────────────────
-//  CONFIG — замініть на свій токен бота
-// ────────────────────────────────────────
-const BOT_TOKEN = 'ВСТАВТЕ_ТОКЕН_БОТА_ТУТ';
+const BOT_TOKEN = 'ВСТАВТЕ_ТОКЕН_БОТА';
 const ADMIN_ID  = '8531471694';
 
-// ────────────────────────────────────────
-//  STATE
-// ────────────────────────────────────────
-let currentStep = 1;
-let signatureData = null;
+let agreed = false;
 let isSigned = false;
+let signatureData = null;
+let canvas, ctx, drawing = false;
 
-const stepLabels = ['', 'Дані замовника', 'Перегляд договору', 'Підпис', 'Підтвердження'];
+const stepLabels = ['','Дані замовника','Перегляд договору','Підпис','Підтвердження'];
 
 function goStep(n) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('screen' + n).classList.add('active');
-  currentStep = n;
-  updateProgress(n);
+  document.getElementById(n === 'success' ? 'screenSuccess' : 'screen' + n).classList.add('active');
+  if (n !== 'success') {
+    updateProgress(n);
+  } else {
+    document.getElementById('progressBar').style.display = 'none';
+    document.getElementById('stepLabel').style.display = 'none';
+  }
   window.scrollTo(0, 0);
 }
 
@@ -378,151 +349,109 @@ function updateProgress(n) {
   for (let i = 1; i <= 4; i++) {
     const dot = document.getElementById('dot' + i);
     dot.classList.remove('active','done');
-    if (i < n) dot.classList.add('done'), dot.textContent = '✓';
-    else if (i === n) dot.classList.add('active'), dot.textContent = i;
+    if (i < n) { dot.classList.add('done'); dot.textContent = '✓'; }
+    else if (i === n) { dot.classList.add('active'); dot.textContent = i; }
     else dot.textContent = i;
-    if (i < 4) {
-      const line = document.getElementById('line' + i);
-      line.classList.toggle('done', i < n);
-    }
+    if (i < 4) document.getElementById('line' + i).classList.toggle('done', i < n);
   }
   document.getElementById('stepLabel').textContent = stepLabels[n];
 }
 
-// ────────────────────────────────────────
-//  STEP 1 → 2
-// ────────────────────────────────────────
+function getKN() {
+  const a = v('kn1'), b = v('kn2'), c = v('kn3'), d = v('kn4');
+  if (!a) return '';
+  return `${a}:${b}:${c}:${d}`;
+}
+
 function goStep2() {
-  const required = ['name','phone','kn','address','totalSum','advanceSum'];
-  const missing = required.some(id => !document.getElementById(id).value.trim());
+  const missing = !v('name') || !v('phone') || !v('kn1') || !v('address') || !v('totalSum') || !v('advanceSum');
   if (missing) { showAlert('alert1'); return; }
   hideAlert('alert1');
   renderContract();
   goStep(2);
 }
 
-// ────────────────────────────────────────
-//  RENDER CONTRACT
-// ────────────────────────────────────────
 function renderContract() {
   const d = getData();
   const balance = (parseFloat(d.total) - parseFloat(d.advance)).toFixed(0);
-  const today = new Date().toLocaleDateString('uk-UA',{day:'2-digit',month:'long',year:'numeric'});
   const pct = d.total > 0 ? Math.round(d.advance / d.total * 100) : 50;
-
+  const today = new Date().toLocaleDateString('uk-UA',{day:'2-digit',month:'long',year:'numeric'});
   document.getElementById('contractText').innerHTML = `
-    <h2>ДОГОВІР № ___</h2>
+    <h2>ДОГОВІР</h2>
     <h2>на виконання геодезичних робіт</h2>
-    <p style="display:flex;justify-content:space-between;margin-top:8px">
-      <span>м. Васильків</span><span>«${today}»</span>
-    </p>
-    <h3>1. СТОРОНИ</h3>
+    <p style="display:flex;justify-content:space-between;margin-top:8px;font-size:12px"><span>м. Васильків</span><span>${today}</span></p>
+    <h3>1. Сторони</h3>
     <p><b>Виконавець:</b> ФОП Хмель Віталій Сергійович, тел. +38 096 121 09 06</p>
-    <p><b>Замовник:</b> <span class="field-line"><b>${d.name}</b></span>, тел. <b>${d.phone}</b>, ІПН: ${d.ipn||'—'}</p>
-
-    <h3>2. ПРЕДМЕТ ДОГОВОРУ</h3>
-    <p>Виконавець виконує роботи з <b>виносу меж земельної ділянки в натуру (на місцевість)</b>.</p>
-    <p>Кадастровий номер: <b>${d.kn}</b></p>
-    <p>Адреса: ${d.address}</p>
-    <p>Кількість ділянок: <b>${d.parcels}</b>${d.area ? ', площа: '+d.area+' га' : ''}</p>
-
-    <h3>3. ВАРТІСТЬ І ОПЛАТА</h3>
-    <p>Загальна вартість: <b class="highlight">${d.total} грн</b></p>
-    <p>Аванс (${pct}%): <b>${d.advance} грн</b> — до початку виконання, підтверджує бронювання виїзду</p>
-    <p>Залишок: <b>${balance} грн</b> — сплачується до початку роботи безпосередньо на об'єкті</p>
-
-    <h3>4. УМОВИ АВАНСУ</h3>
-    <p><b class="highlight">УВАГА:</b> Аванс не повертається у разі відмови після його сплати. Аванс зараховується як компенсація витрат Виконавця (підготовчі роботи, мобілізація).</p>
-    <p>При скасуванні виїзду менш ніж за 24 год — Виконавець утримує 50% авансу.</p>
-    <p>Зміна кількості ділянок після сплати авансу — перерахунку не проводиться.</p>
-
-    <h3>5. ОБОВ'ЯЗКИ ВИКОНАВЦЯ</h3>
-    <p>Виконати роботи якісно, у погоджені строки, надати акт виконаних робіт.</p>
-
-    <h3>6. ОБОВ'ЯЗКИ ЗАМОВНИКА</h3>
-    <p>Забезпечити доступ до ділянки, здійснити оплату в зазначені строки, надати документи на земельну ділянку.</p>
-
-    <h3>7. ВІДПОВІДАЛЬНІСТЬ</h3>
-    <p>Сторони несуть відповідальність відповідно до чинного законодавства України.</p>
-
-    <h3>8. РЕКВІЗИТИ ВИКОНАВЦЯ</h3>
-    <p>ФОП Хмель В.С. | тел. +38 096 121 09 06 | budekspertinfo@gmail.com | @vitaliy_bud</p>
-    <br>
-    <p style="text-align:center;color:#555;font-size:12px">Підписуючи договір, Замовник підтверджує ознайомлення та згоду з усіма умовами.</p>
+    <p><b>Замовник:</b> <b>${d.name}</b>, тел. <b>${d.phone}</b>${d.ipn ? ', ІПН: '+d.ipn : ''}</p>
+    <h3>2. Предмет</h3>
+    <p>Виконавець виконує роботи з <b>виносу меж земельної ділянки в натуру</b>.</p>
+    <p>КН: <b>${d.kn}</b><br>Адреса: ${d.address}<br>Ділянок: <b>${d.parcels}</b>${d.area?', '+d.area+' га':''}</p>
+    <h3>3. Вартість і оплата</h3>
+    <p>Загальна вартість: <b>${d.total} грн</b></p>
+    <p>Аванс (${pct}%): <b>${d.advance} грн</b> — до початку виконання</p>
+    <p>Залишок: <b>${balance} грн</b> — до початку роботи на об'єкті</p>
+    <h3>4. Умови авансу</h3>
+    <div class="warn">⚠️ Аванс не повертається у разі відмови після сплати. Зараховується як компенсація витрат Виконавця.</div>
+    <p>При скасуванні виїзду менш ніж за 24 год — утримується 50% авансу.</p>
+    <p>Зміна кількості ділянок після авансу — перерахунку не проводиться.</p>
+    <h3>5. Реквізити виконавця</h3>
+    <p>ФОП Хмель В.С. | +38 096 121 09 06 | budekspertinfo@gmail.com | @vitaliy_bud</p>
+    <p style="text-align:center;color:#777;font-size:11px;margin-top:10px">Підписуючи договір, Замовник підтверджує згоду з усіма умовами.</p>
   `;
 }
 
-// ────────────────────────────────────────
-//  STEP 2 → 3
-// ────────────────────────────────────────
+// AGREE — кастомний чекбокс
+function toggleAgree() {
+  agreed = !agreed;
+  const box = document.getElementById('agreeBox');
+  const icon = document.getElementById('checkIcon');
+  box.classList.toggle('checked', agreed);
+  icon.classList.toggle('on', agreed);
+  icon.textContent = agreed ? '✓' : '';
+  if (agreed) hideAlert('alert2');
+}
+
 function goStep3() {
-  if (!document.getElementById('agreeCheck').checked) { showAlert('alert2'); return; }
+  if (!agreed) { showAlert('alert2'); return; }
   hideAlert('alert2');
   goStep(3);
-  initCanvas();
+  setTimeout(initCanvas, 100);
 }
 
-// ────────────────────────────────────────
-//  CANVAS SIGNATURE
-// ────────────────────────────────────────
-let canvas, ctx, drawing = false, hasDrawn = false;
-
+// CANVAS
 function initCanvas() {
   canvas = document.getElementById('sigCanvas');
-  const wrap = canvas.parentElement;
-  canvas.width  = wrap.offsetWidth;
-  canvas.height = 200;
+  canvas.width  = canvas.parentElement.offsetWidth;
+  canvas.height = 180;
   ctx = canvas.getContext('2d');
-  ctx.strokeStyle = '#1a1a1a';
-  ctx.lineWidth = 2.5;
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
-
-  canvas.addEventListener('touchstart', onStart, { passive: false });
-  canvas.addEventListener('touchmove', onMove, { passive: false });
-  canvas.addEventListener('touchend', onEnd);
+  ctx.strokeStyle = '#111'; ctx.lineWidth = 2.5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  canvas.addEventListener('touchstart', onStart, {passive:false});
+  canvas.addEventListener('touchmove', onMove, {passive:false});
+  canvas.addEventListener('touchend', () => drawing = false);
   canvas.addEventListener('mousedown', onStart);
   canvas.addEventListener('mousemove', onMove);
-  canvas.addEventListener('mouseup', onEnd);
+  canvas.addEventListener('mouseup', () => drawing = false);
 }
-
 function getPos(e) {
   const r = canvas.getBoundingClientRect();
-  const src = e.touches ? e.touches[0] : e;
-  return { x: src.clientX - r.left, y: src.clientY - r.top };
+  const s = e.touches ? e.touches[0] : e;
+  return {x: s.clientX - r.left, y: s.clientY - r.top};
 }
-
-function onStart(e) {
-  e.preventDefault();
-  drawing = true;
-  const p = getPos(e);
-  ctx.beginPath();
-  ctx.moveTo(p.x, p.y);
-}
+function onStart(e) { e.preventDefault(); drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); }
 function onMove(e) {
   e.preventDefault();
   if (!drawing) return;
-  const p = getPos(e);
-  ctx.lineTo(p.x, p.y);
-  ctx.stroke();
-  if (!hasDrawn) {
-    hasDrawn = true;
-    document.getElementById('sigHint').style.opacity = '0';
-    isSigned = true;
-  }
+  const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke();
+  if (!isSigned) { isSigned = true; document.getElementById('sigHint').style.opacity='0'; document.getElementById('sigWrap').classList.add('active'); }
 }
-function onEnd() { drawing = false; }
-
 function clearSig() {
   if (!ctx) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  hasDrawn = false; isSigned = false;
-  document.getElementById('sigHint').style.opacity = '1';
+  isSigned = false;
+  document.getElementById('sigHint').style.opacity='1';
+  document.getElementById('sigWrap').classList.remove('active');
 }
 
-// ────────────────────────────────────────
-//  STEP 3 → 4
-// ────────────────────────────────────────
 function goStep4() {
   if (!isSigned) { showAlert('alert3'); return; }
   hideAlert('alert3');
@@ -534,125 +463,83 @@ function goStep4() {
 function renderSummary() {
   const d = getData();
   const balance = (parseFloat(d.total) - parseFloat(d.advance)).toFixed(0);
-  document.getElementById('summaryBox').innerHTML = `
-    <p>👤 <b>Замовник:</b> ${d.name}</p>
-    <p>📞 <b>Телефон:</b> ${d.phone}</p>
-    <p>🗂 <b>КН:</b> ${d.kn}</p>
-    <p>📍 <b>Адреса:</b> ${d.address}</p>
-    <p>📦 <b>Ділянок:</b> ${d.parcels}${d.area ? ', '+d.area+' га' : ''}</p>
-    <p>💰 <b>Сума:</b> ${d.total} грн</p>
-    <p>🟡 <b>Аванс:</b> ${d.advance} грн</p>
-    <p>🟢 <b>Залишок:</b> ${balance} грн</p>
-  `;
+  const rows = [
+    ['👤 Замовник', d.name],
+    ['📞 Телефон', d.phone],
+    ['🗂 Кадастровий №', d.kn],
+    ['📍 Адреса', d.address],
+    ['📦 Ділянок', d.parcels + (d.area ? ', '+d.area+' га' : '')],
+    ['💰 Сума', d.total + ' грн'],
+    ['🟡 Аванс', d.advance + ' грн'],
+    ['🟢 Залишок', balance + ' грн'],
+  ];
+  document.getElementById('summaryBox').innerHTML = rows.map(([l,v]) =>
+    `<div class="summary-row"><span class="sum-label">${l}</span><span class="sum-val">${v}</span></div>`
+  ).join('');
   document.getElementById('sigPreview').src = signatureData;
 }
 
-// ────────────────────────────────────────
-//  SUBMIT
-// ────────────────────────────────────────
 async function submitContract() {
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Надсилаємо...';
-
+  btn.innerHTML = '<span class="spinner"></span> НАДСИЛАЄМО...';
   const d = getData();
   const balance = (parseFloat(d.total) - parseFloat(d.advance)).toFixed(0);
-  const now = new Date();
-  const dateStr = now.toLocaleString('uk-UA');
-
-  const msg = `📋 *НОВИЙ ПІДПИСАНИЙ ДОГОВІР*\n\n`
-    + `👤 *Замовник:* ${escMd(d.name)}\n`
-    + `📞 *Телефон:* ${escMd(d.phone)}\n`
+  const now = new Date().toLocaleString('uk-UA');
+  const msg = `📋 *ПІДПИСАНИЙ ДОГОВІР — БудЕксперт*\n\n`
+    + `👤 *Замовник:* ${d.name}\n📞 *Телефон:* ${d.phone}\n`
     + (d.ipn ? `🪪 *ІПН:* ${d.ipn}\n` : '')
-    + (d.passS && d.passN ? `📄 *Паспорт:* ${d.passS} ${d.passN}\n` : '')
-    + `\n🗂 *Кадастровий №:* \`${d.kn}\`\n`
-    + `📍 *Адреса:* ${escMd(d.address)}\n`
-    + `📦 *Ділянок:* ${d.parcels}${d.area ? ', '+d.area+' га' : ''}\n`
-    + `\n💰 *Сума договору:* ${d.total} грн\n`
-    + `🟡 *Аванс:* ${d.advance} грн\n`
-    + `🟢 *Залишок:* ${balance} грн\n`
-    + `\n📅 *Підписано:* ${dateStr}\n`
-    + `✅ Замовник погодився з умовами договору`;
-
+    + `\n🗂 *КН:* \`${d.kn}\`\n📍 *Адреса:* ${d.address}\n`
+    + `📦 *Ділянок:* ${d.parcels}${d.area?', '+d.area+' га':''}\n`
+    + `\n💰 *Сума:* ${d.total} грн\n🟡 *Аванс:* ${d.advance} грн\n🟢 *Залишок:* ${balance} грн\n`
+    + `\n📅 *Підписано:* ${now}\n✅ Замовник погодився з умовами`;
   try {
-    // 1. Send text message
     await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: ADMIN_ID,
-        text: msg,
-        parse_mode: 'Markdown'
-      })
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({chat_id: ADMIN_ID, text: msg, parse_mode:'Markdown'})
     });
-
-    // 2. Send signature as photo
-    const sigBlob = await (await fetch(signatureData)).blob();
+    const blob = await (await fetch(signatureData)).blob();
     const fd = new FormData();
     fd.append('chat_id', ADMIN_ID);
-    fd.append('photo', sigBlob, 'signature.png');
+    fd.append('photo', blob, 'signature.png');
     fd.append('caption', `✍️ Підпис: ${d.name}`);
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
-      method: 'POST', body: fd
-    });
-
-    // Success
-    document.getElementById('signDate').textContent = dateStr;
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById('screenSuccess').classList.add('active');
-    document.getElementById('progressBar').style.display = 'none';
-    document.getElementById('stepLabel').style.display = 'none';
-    window.scrollTo(0, 0);
-
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {method:'POST', body:fd});
+    document.getElementById('signDate').textContent = now;
+    goStep('success');
   } catch(err) {
-    showAlert('alert4', '⚠️ Помилка надсилання. Перевірте інтернет і спробуйте ще раз.');
+    showAlert('alert4','⚠️ Помилка надсилання. Перевірте інтернет.');
     btn.disabled = false;
-    btn.innerHTML = '📨 Надіслати та підписати договір';
+    btn.innerHTML = '📨 НАДІСЛАТИ ТА ПІДПИСАТИ';
   }
 }
 
-// ────────────────────────────────────────
-//  HELPERS
-// ────────────────────────────────────────
 function getData() {
   return {
-    name:     v('name'),
-    phone:    v('phone'),
-    ipn:      v('ipn'),
-    passS:    v('passS').toUpperCase(),
-    passN:    v('passN'),
-    kn:       v('kn'),
-    address:  v('address'),
-    parcels:  v('parcels'),
-    area:     v('area'),
-    total:    v('totalSum'),
-    advance:  v('advanceSum'),
+    name: v('name'), phone: v('phone'), ipn: v('ipn'),
+    passS: v('passS'), passN: v('passN'),
+    kn: getKN(), address: v('address'),
+    parcels: v('parcels'), area: v('area'),
+    total: v('totalSum'), advance: v('advanceSum'),
   };
 }
 function v(id) { return document.getElementById(id)?.value.trim() || ''; }
-function escMd(t) { return t.replace(/[_*[\]()~`>#+=|{}.!-]/g, '\\$&'); }
-function showAlert(id, msg) {
-  const el = document.getElementById(id);
-  if (msg) el.textContent = msg;
-  el.classList.add('show');
-  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
+function showAlert(id, msg) { const el = document.getElementById(id); if(msg) el.textContent=msg; el.classList.add('show'); el.scrollIntoView({behavior:'smooth',block:'nearest'}); }
 function hideAlert(id) { document.getElementById(id).classList.remove('show'); }
+
+// Auto-jump між полями КН
+['kn1','kn2','kn3'].forEach((id, i) => {
+  const lens = [10, 3, 3];
+  document.getElementById(id).addEventListener('input', function() {
+    if (this.value.length >= lens[i]) document.getElementById(['kn2','kn3','kn4'][i]).focus();
+  });
+});
 
 // Phone format
 document.getElementById('phone').addEventListener('input', function() {
-  let v = this.value.replace(/\D/g,'');
-  if (v.startsWith('380')) v = '+' + v;
-  else if (v.startsWith('0')) v = '+38' + v;
-  this.value = v;
-});
-
-// KN format hint
-document.getElementById('kn').addEventListener('blur', function() {
-  const v = this.value.replace(/\D/g,'');
-  if (v.length >= 10 && !this.value.includes(':')) {
-    this.value = v.slice(0,10)+':'+v.slice(10,12)+':'+v.slice(12,15)+':'+v.slice(15);
-  }
+  let val = this.value.replace(/\D/g,'');
+  if (val.startsWith('380')) val = '+' + val;
+  else if (val.startsWith('0')) val = '+38' + val;
+  this.value = val;
 });
 </script>
 </body>
