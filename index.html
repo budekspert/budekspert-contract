@@ -271,6 +271,7 @@ select option{background:var(--card)}
     для узгодження вартості та дати виїзду.<br><br>
     <strong style="color:var(--gold2);font-size:18px;letter-spacing:1px">+38 096 121 09 06</strong><br>
     <span style="color:var(--gray);letter-spacing:.5px">Telegram: @vitaliy_bud</span><br><br>
+    <div style="margin-top:10px;padding:10px 16px;background:rgba(201,160,50,.1);border-radius:8px;border:1px solid rgba(201,160,50,.3)"><span style="font-size:11px;color:var(--gray);letter-spacing:1px">НОМЕР ЗАЯВКИ: </span><span id="orderNum" style="color:var(--gold2);font-weight:800;letter-spacing:2px"></span></div>
     <span id="signDate" style="font-size:10px;color:var(--gray);letter-spacing:1px"></span></p>
   </div>
 </div>
@@ -377,8 +378,9 @@ async function submitForm(){
   btn.disabled=true;btn.innerHTML='<span class="spinner"></span> НАДСИЛАЄМО...';
   signatureData=canvas.toDataURL('image/png');
   const now=new Date().toLocaleString('uk-UA');
+  const orderNum='#'+new Date().toISOString().slice(2,10).replace(/-/g,'')+'-'+String(Math.floor(Math.random()*900)+100);
   const msg=
-    `📋 *НОВА ЗАЯВКА — Винос меж*\n\n`+
+    `📋 *НОВА ЗАЯВКА ${orderNum} — Винос меж*\n\n`+
     `👤 *Замовник:* ${v('name')}\n`+
     `📞 *Телефон:* ${v('phone')}\n`+
     (v('ipn')?`🪪 *ІПН:* ${v('ipn')}\n`:'')+
@@ -396,6 +398,7 @@ async function submitForm(){
     const fd=new FormData();fd.append('chat_id',ADMIN_ID);fd.append('photo',blob,'pidpys.png');fd.append('caption',`✍️ ${v('name')} | ${v('phone')}`);
     await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`,{method:'POST',body:fd});
     document.getElementById('signDate').textContent='ПІДПИСАНО: '+now.toUpperCase();
+    document.getElementById('orderNum').textContent=orderNum;
     goStep('success');
   }catch(e){
     showAlert('alert3','⚠️ Помилка надсилання. Перевірте інтернет.');
