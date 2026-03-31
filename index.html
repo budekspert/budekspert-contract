@@ -3,108 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>БудЕксперт — Заявка</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>БудЕксперт — Заявка на винос меж</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-:root{--bg:#0f1923;--card:#1a2535;--card2:#1f2e40;--gold:#f5c842;--gold2:#e0b030;--white:#fff;--gray:#8a9bb0;--light:#c8d6e5;--danger:#e74c3c;--success:#27ae60;--r:14px}
-html,body{min-height:100%;background:var(--bg);font-family:'Montserrat',sans-serif;color:var(--white)}
-.header{background:var(--card);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(245,200,66,.2);position:sticky;top:0;z-index:10}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#111111;
+  --card:#141414;
+  --card2:#1a1a1a;
+  --border:rgba(201,160,50,.2);
+  --gold:#c9a032;
+  --gold2:#e8c96a;
+  --gold3:#f5e090;
+  --white:#f0ead6;
+  --gray:#6b6b6b;
+  --light:#a09070;
+  --danger:#c0392b;
+  --r:12px;
+}
+html,body{min-height:100%;background:var(--bg);font-family:'Montserrat',sans-serif;color:var(--white);overflow-x:hidden}
+
+/* STARS BG */
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--d,3s) infinite var(--delay,0s)}
+@keyframes twinkle{0%,100%{opacity:.1;transform:scale(1)}50%{opacity:.8;transform:scale(1.3)}}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.95);backdrop-filter:blur(12px);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
 .hlogo{display:flex;align-items:center;gap:10px}
-.hicon{width:38px;height:38px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
-.hname{font-weight:800;font-size:15px}.hphone{font-size:11px;color:var(--gray);margin-top:1px}
-.hbadge{border:1.5px solid var(--gold);color:var(--gold);padding:6px 12px;border-radius:8px;font-size:11px;font-weight:800;letter-spacing:1px}
-.progress{display:flex;align-items:center;padding:14px 18px 0;gap:6px}
-.dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:2px solid rgba(255,255,255,.2);color:var(--gray);transition:all .3s}
-.dot.active{border-color:var(--gold);color:var(--gold)}.dot.done{border-color:var(--gold);background:var(--gold);color:var(--bg)}
-.pline{flex:1;height:1px;background:rgba(255,255,255,.15);transition:background .3s}.pline.done{background:var(--gold)}
-.slabel{text-align:center;font-size:11px;color:var(--gray);padding:6px 18px 12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.card{background:var(--card);border-radius:var(--r);margin:0 12px 12px;padding:18px 16px;border:1px solid rgba(245,200,66,.12)}
-.stitle{font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(245,200,66,.15)}
-.field{margin-bottom:14px}
-label{display:block;font-size:10px;color:var(--gray);font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-input,select,textarea{width:100%;padding:13px 14px;background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:var(--white);font-size:15px;font-family:'Montserrat',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none}
-input:focus,select:focus,textarea:focus{border-color:var(--gold)}
-input::placeholder,textarea::placeholder{color:rgba(255,255,255,.25);font-size:13px}
-select option{background:var(--card)}.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.kn-labels{display:grid;grid-template-columns:2.2fr 1fr 1.2fr 1.2fr;gap:6px;margin-bottom:4px}
-.kn-labels span{font-size:9px;color:var(--gray);text-align:center;font-weight:700}
+.hicon{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 0 20px rgba(201,160,50,.3)}
+.hname{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;color:var(--gold2);letter-spacing:1px}
+.hphone{font-size:10px;color:var(--gray);margin-top:1px;letter-spacing:.5px}
+.hbadge{border:1px solid var(--gold);color:var(--gold);padding:6px 14px;border-radius:6px;font-size:10px;font-weight:800;letter-spacing:2px}
+
+/* PROGRESS */
+.progress-wrap{padding:20px 20px 0;position:relative;z-index:1}
+.progress-title{font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;text-align:center;margin-bottom:12px}
+.progress{display:flex;align-items:center;gap:0}
+.dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:1px solid var(--gray);color:var(--gray);transition:all .4s;flex-shrink:0;font-family:'Montserrat',sans-serif}
+.dot.active{border-color:var(--gold);color:var(--gold);box-shadow:0 0 16px rgba(201,160,50,.3)}
+.dot.done{border-color:var(--gold);background:var(--gold);color:var(--bg);box-shadow:0 0 12px rgba(201,160,50,.4)}
+.pline{flex:1;height:1px;background:var(--gray);transition:background .4s}
+.pline.done{background:var(--gold)}
+.slabel{text-align:center;font-size:10px;color:var(--gold);padding:8px 20px 16px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
+
+/* SECTION */
+.section{position:relative;z-index:1;margin:0 14px 14px;padding:22px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
+.section::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--gold2);letter-spacing:1px;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+
+/* FIELDS */
+.field{margin-bottom:16px}
+label{display:block;font-size:9px;color:var(--light);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:7px}
+input,select,textarea{width:100%;padding:13px 16px;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:var(--white);font-size:15px;font-family:'Montserrat',sans-serif;outline:none;transition:all .2s;-webkit-appearance:none}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);background:rgba(201,160,50,.05);box-shadow:0 0 0 3px rgba(201,160,50,.08)}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2);font-size:13px}
+select option{background:var(--card)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* KN */
+.kn-labels{display:grid;grid-template-columns:2.2fr 1fr 1.2fr 1.2fr;gap:6px;margin-bottom:5px}
+.kn-labels span{font-size:8px;color:var(--gray);text-align:center;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
 .kn-grid{display:grid;grid-template-columns:2.2fr 1fr 1.2fr 1.2fr;gap:6px}
-.kn-grid input{text-align:center;font-size:13px;padding:12px 6px}
-.kn-hint{font-size:10px;color:var(--gray);margin-top:5px}
-.pay-block{background:var(--card2);border-radius:12px;padding:16px;border:1px solid rgba(245,200,66,.2);margin-bottom:14px}
-.pay-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px}
-.pay-row:last-child{border:none;padding-bottom:0}
-.pay-l{color:var(--gray);font-weight:600}.pay-v{font-weight:800}.pay-v.gold{color:var(--gold)}.pay-v.green{color:var(--success)}
-.pay-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#2e7d32,#27ae60);color:#fff;border:none;border-radius:12px;padding:15px;width:100%;font-size:14px;font-weight:800;font-family:'Montserrat',sans-serif;cursor:pointer;margin-top:12px;text-decoration:none;box-shadow:0 4px 16px rgba(39,174,96,.3);letter-spacing:.5px}
-.pay-btn:active{transform:scale(.97)}
-.pay-status{text-align:center;font-size:12px;color:var(--gray);margin-top:8px;font-weight:600}
-.info-box{background:rgba(245,200,66,.07);border-left:3px solid var(--gold);padding:12px 14px;border-radius:8px;font-size:12px;color:var(--light);margin-bottom:14px;font-weight:600;line-height:1.6}
-.info-box b{color:var(--gold)}
-.warn-box{background:rgba(231,76,60,.07);border-left:3px solid var(--danger);padding:12px 14px;border-radius:8px;font-size:12px;color:var(--light);margin-bottom:14px;font-weight:600;line-height:1.6}
-.warn-box b{color:#ff6b6b}
-.disclaimer{background:rgba(255,255,255,.04);border-radius:10px;padding:14px;font-size:12px;color:var(--gray);line-height:1.7;border:1px solid rgba(255,255,255,.08);margin-bottom:14px}
+.kn-grid input{text-align:center;font-size:13px;padding:12px 4px;letter-spacing:.5px}
+.kn-hint{font-size:9px;color:var(--gray);margin-top:6px;letter-spacing:.5px}
+
+/* WARN / INFO */
+.gold-box{background:rgba(201,160,50,.06);border:1px solid rgba(201,160,50,.2);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--light);margin-bottom:16px;line-height:1.7;position:relative;overflow:hidden}
+.gold-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold2))}
+.gold-box b{color:var(--gold2)}
+.red-box{background:rgba(192,57,43,.07);border:1px solid rgba(192,57,43,.25);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--light);margin-bottom:16px;line-height:1.7;position:relative;overflow:hidden}
+.red-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--danger)}
+.red-box b{color:#e74c3c}
+.disclaimer{background:rgba(255,255,255,.03);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--gray);line-height:1.8;border:1px solid rgba(255,255,255,.06);margin-bottom:16px}
 .disclaimer b{color:var(--light)}
-.agree-box{display:flex;align-items:flex-start;gap:12px;background:rgba(245,200,66,.06);border-radius:10px;padding:14px;border:1.5px solid rgba(245,200,66,.2);cursor:pointer;margin-bottom:14px;transition:border-color .2s}
-.agree-box.on{border-color:var(--gold)}
-.chk{width:24px;height:24px;min-width:24px;border:2px solid var(--gray);border-radius:6px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;flex-shrink:0;margin-top:1px}
+
+/* AGREE */
+.agree-box{display:flex;align-items:flex-start;gap:14px;background:rgba(201,160,50,.05);border-radius:10px;padding:16px;border:1px solid rgba(201,160,50,.15);cursor:pointer;margin-bottom:16px;transition:all .2s}
+.agree-box.on{border-color:var(--gold);background:rgba(201,160,50,.09)}
+.chk{width:26px;height:26px;min-width:26px;border:1px solid var(--gray);border-radius:6px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;flex-shrink:0;margin-top:1px}
 .chk.on{background:var(--gold);border-color:var(--gold);color:var(--bg)}
-.agree-text{font-size:12px;color:var(--light);line-height:1.6;font-weight:600}.agree-text b{color:var(--gold)}
-.sig-wrap{background:#fff;border-radius:10px;border:2px dashed rgba(245,200,66,.35);position:relative;overflow:hidden}
-.sig-wrap.on{border-color:var(--gold);border-style:solid}
-#sigCanvas{display:block;touch-action:none;width:100%;height:170px;cursor:crosshair}
-.sig-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:13px;color:#bbb;pointer-events:none;white-space:nowrap;transition:opacity .3s}
-.sig-clear{background:none;border:none;color:var(--danger);font-size:12px;cursor:pointer;padding:6px 0;text-decoration:underline;font-family:'Montserrat',sans-serif;font-weight:700}
-.btn{display:block;width:100%;padding:15px;border-radius:10px;border:none;cursor:pointer;font-size:14px;font-weight:800;font-family:'Montserrat',sans-serif;letter-spacing:1px;text-transform:uppercase;transition:all .15s;margin-top:14px}
-.btn-gold{background:var(--gold);color:var(--bg);box-shadow:0 4px 16px rgba(245,200,66,.3)}
-.btn-gold:active{transform:scale(.97);background:var(--gold2)}.btn-gold:disabled{opacity:.4;cursor:not-allowed;transform:none}
-.btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.2);color:var(--gray);margin-top:8px}
-.alert{background:rgba(231,76,60,.12);border:1px solid rgba(231,76,60,.4);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--danger);margin-top:10px;display:none;font-weight:700}
+.agree-text{font-size:12px;color:var(--light);line-height:1.6;font-weight:500}
+.agree-text b{color:var(--gold2)}
+
+/* SIGNATURE */
+.sig-wrap{background:#fff;border-radius:10px;border:1px solid rgba(201,160,50,.3);position:relative;overflow:hidden;box-shadow:inset 0 0 30px rgba(0,0,0,.05)}
+.sig-wrap.on{border-color:var(--gold);box-shadow:0 0 20px rgba(201,160,50,.15)}
+#sigCanvas{display:block;touch-action:none;width:100%;height:180px;cursor:crosshair}
+.sig-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:13px;color:#ccc;pointer-events:none;white-space:nowrap;transition:opacity .3s;font-family:'Montserrat',sans-serif}
+.sig-clear{background:none;border:none;color:var(--danger);font-size:11px;cursor:pointer;padding:7px 0;text-decoration:underline;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.5px}
+
+/* SUMMARY */
+.sum-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;gap:8px}
+.sum-row:last-child{border:none}
+.sum-l{color:var(--gray);font-weight:600;white-space:nowrap}
+.sum-r{font-weight:700;color:var(--white);text-align:right}
+
+/* BUTTONS */
+.sticky-btn{position:fixed;bottom:0;left:0;right:0;padding:14px 16px 20px;background:linear-gradient(to top,var(--bg) 70%,transparent);z-index:50;display:flex;gap:10px}
+.btn{padding:15px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:800;font-family:'Montserrat',sans-serif;letter-spacing:1.5px;text-transform:uppercase;transition:all .2s}
+.btn-gold{flex:2;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg);box-shadow:0 4px 24px rgba(201,160,50,.4)}
+.btn-gold:active{transform:scale(.97);box-shadow:0 2px 12px rgba(201,160,50,.3)}
+.btn-gold:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-ghost{flex:1;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--gray)}
+.btn-ghost:active{background:rgba(255,255,255,.05)}
+
+/* ALERT */
+.alert{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:12px;color:#e74c3c;margin-top:10px;display:none;font-weight:700;letter-spacing:.3px}
 .alert.show{display:block}
-.sum-row{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px;gap:8px}
-.sum-row:last-child{border:none}.sum-l{color:var(--gray);font-weight:600;white-space:nowrap}.sum-r{font-weight:700;color:var(--white);text-align:right}
-.success-screen{text-align:center;padding:50px 20px}
-.sicon{font-size:72px;margin-bottom:20px;animation:pop .4s ease}
+
+/* SUCCESS */
+.success-screen{text-align:center;padding:60px 24px;position:relative;z-index:1}
+.sicon{font-size:80px;margin-bottom:24px;animation:pop .5s ease}
 @keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
-.success-screen h2{font-size:24px;font-weight:800;color:var(--gold);margin-bottom:12px}
-.success-screen p{color:var(--gray);font-size:14px;line-height:1.9}
-.spinner{display:inline-block;width:16px;height:16px;border:3px solid rgba(0,0,0,.2);border-top-color:var(--bg);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
+.success-screen h2{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold2);margin-bottom:14px;letter-spacing:1px}
+.success-screen p{color:var(--gray);font-size:13px;line-height:2}
+.success-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto}
+
+/* SPINNER */
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(0,0,0,.2);border-top-color:var(--bg);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.screen{display:none;animation:fadeIn .25s ease}.screen.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.pb90{padding-bottom:90px}
+.screen{display:none;animation:fadeIn .3s ease}.screen.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
+
+<!-- ЗІРКИ -->
+<div class="stars" id="stars"></div>
+
+<!-- HEADER -->
 <div class="header">
-  <div class="hlogo"><div class="hicon">🏠</div><div><div class="hname">БудЕксперт</div><div class="hphone">096 121 09 06</div></div></div>
+  <div class="hlogo">
+    <div class="hicon">🏠</div>
+    <div>
+      <div class="hname">БудЕксперт</div>
+      <div class="hphone">096 121 09 06</div>
+    </div>
+  </div>
   <div class="hbadge">ЗАЯВКА</div>
 </div>
-<div class="progress" id="progressBar">
-  <div class="dot active" id="dot1">1</div><div class="pline" id="line1"></div>
-  <div class="dot" id="dot2">2</div><div class="pline" id="line2"></div>
-  <div class="dot" id="dot3">3</div><div class="pline" id="line3"></div>
-  <div class="dot" id="dot4">4</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-title" id="stepLabel">Ваші дані</div>
+  <div class="progress">
+    <div class="dot active" id="dot1">1</div>
+    <div class="pline" id="line1"></div>
+    <div class="dot" id="dot2">2</div>
+    <div class="pline" id="line2"></div>
+    <div class="dot" id="dot3">3</div>
+  </div>
 </div>
-<div class="slabel" id="stepLabel">Ваші дані</div>
-<div class="screen active" id="screen1">
-  <div class="card">
+
+<!-- ══ ЕКРАН 1 ══ -->
+<div class="screen active pb90" id="screen1">
+  <div class="section" style="margin-top:16px">
     <div class="stitle">👤 Ваші дані</div>
     <div class="field"><label>ПІБ повністю *</label><input type="text" id="name" placeholder="Іваненко Іван Іванович" autocomplete="name"></div>
-    <div class="field"><label>Телефон *</label><input type="tel" id="phone" placeholder="+38 096 000 00 00"></div>
+    <div class="field"><label>Телефон *</label><input type="tel" id="phone" placeholder="+38 096 000 00 00" maxlength="13"></div>
     <div class="field"><label>ІПН / РНОКПП</label><input type="text" id="ipn" placeholder="1234567890" maxlength="12" inputmode="numeric"></div>
   </div>
-  <div class="card">
+
+  <div class="section">
     <div class="stitle">🗺️ Об'єкт — Винос меж</div>
     <div class="field">
       <label>Кадастровий номер *</label>
-      <div class="kn-labels"><span>KOATUU (10 цифр)</span><span>поле</span><span>квартал</span><span>ділянка</span></div>
+      <div class="kn-labels"><span>КОАТУУ (10)</span><span>зона</span><span>квартал</span><span>ділянка</span></div>
       <div class="kn-grid">
         <input type="text" id="kn1" placeholder="3222487400" maxlength="10" inputmode="numeric">
-        <input type="text" id="kn2" placeholder="04" maxlength="3" inputmode="numeric">
+        <input type="text" id="kn2" placeholder="04" maxlength="2" inputmode="numeric">
         <input type="text" id="kn3" placeholder="001" maxlength="3" inputmode="numeric">
         <input type="text" id="kn4" placeholder="0022" maxlength="4" inputmode="numeric">
       </div>
-      <div class="kn-hint">Формат: 3222487400 : 04 : 001 : 0022</div>
+      <div class="kn-hint">Приклад: 3222487400 : 04 : 001 : 0022</div>
     </div>
     <div class="field"><label>Адреса / населений пункт *</label><input type="text" id="address" placeholder="с. Назва, Фастівський р-н"></div>
     <div class="row2">
@@ -115,101 +190,235 @@ select option{background:var(--card)}.row2{display:grid;grid-template-columns:1f
     </div>
     <div class="field"><label>Коментар</label><textarea id="comment" rows="2" placeholder="Побажання, зручна дата виїзду..."></textarea></div>
   </div>
-  <div class="card">
-    <div class="stitle">💰 Вартість</div>
-    <div class="pay-block">
-      <div class="pay-row"><span class="pay-l">📐 Геодезичні роботи</span><span class="pay-v" id="geoPrice">—</span></div>
-      <div class="pay-row"><span class="pay-l">🏠 Організаційний збір</span><span class="pay-v gold">1 000 грн</span></div>
-      <div class="pay-row"><span class="pay-l">💵 Разом</span><span class="pay-v green" id="totalPrice">—</span></div>
-    </div>
-    <div class="field"><label>Вартість геодезичних робіт (грн) *</label><input type="number" id="geoSum" placeholder="3500" inputmode="numeric" oninput="calcTotal()"></div>
-    <div class="field"><label>Аванс геодезисту (грн) *</label><input type="number" id="advSum" placeholder="1750" inputmode="numeric"></div>
-    <div class="alert" id="alert1">Заповніть усі обов'язкові поля (*)</div>
-    <button class="btn btn-gold" onclick="goStep2()">ДАЛІ → УМОВИ ТА ОПЛАТА</button>
+
+  <div class="red-box" style="margin:0 14px 90px">
+    🚗 <b>Транспортні витрати</b> геодезиста не входять у вартість послуги та оплачуються окремо після узгодження з менеджером до виїзду на об'єкт.
+  </div>
+
+  <div class="alert" id="alert1" style="margin:0 14px 14px">Заповніть усі обов'язкові поля (*)</div>
+
+  <div class="sticky-btn">
+    <button class="btn btn-gold" style="flex:1" onclick="goStep2()">ДАЛІ → УМОВИ</button>
   </div>
 </div>
-<div class="screen" id="screen2">
-  <div class="card">
-    <div class="stitle">💳 Організаційний збір</div>
-    <div class="info-box">Організаційний збір <b>1 000 грн</b> — оплачується БудЕксперт за підбір та координацію кваліфікованого виконавця.<br><br>Після оплати підтверджуємо заявку та бронюємо дату виїзду геодезиста.</div>
-    <div class="pay-block">
-      <div class="pay-row"><span class="pay-l">🏠 Сплатити зараз (БудЕксперт)</span><span class="pay-v gold">1 000 грн</span></div>
-      <div class="pay-row"><span class="pay-l">📐 Геодезисту на місці</span><span class="pay-v" id="geoOnSite">—</span></div>
-    </div>
-    <a href="https://www.privat24.ua/send/39hqg" target="_blank" class="pay-btn" onclick="markPaid()">💳 ОПЛАТИТИ 1 000 грн → Приват24</a>
-    <div class="pay-status" id="payStatus">Після оплати натисніть кнопку "Далі" нижче</div>
-  </div>
-  <div class="card">
+
+<!-- ══ ЕКРАН 2 ══ -->
+<div class="screen pb90" id="screen2">
+  <div class="section" style="margin-top:16px">
     <div class="stitle">📋 Умови заявки</div>
-    <div class="disclaimer"><b>БудЕксперт</b> є координатором послуг та здійснює підбір кваліфікованого виконавця. Безпосереднє виконання геодезичних робіт здійснюється сертифікованим підрядником (ФОП), з яким Замовник розраховується окремо безпосередньо на об'єкті.</div>
-    <div class="warn-box">⚠️ <b>Організаційний збір не повертається</b> у разі відмови після оплати.<br><br>При скасуванні виїзду менш ніж за <b>24 години</b> — аванс геодезисту не повертається.<br><br>Зміна кількості ділянок після підтвердження — перерахунку <b>не проводиться</b>.</div>
+
+    <div class="disclaimer">
+      <b>БудЕксперт</b> є координатором послуг та здійснює підбір кваліфікованого виконавця. Безпосереднє виконання геодезичних робіт здійснюється сертифікованим підрядником (ФОП), з яким Замовник розраховується окремо на об'єкті.
+    </div>
+
+    <div class="red-box">
+      ⚠️ При скасуванні виїзду менш ніж за <b>24 години</b> — транспортні витрати не компенсуються.<br><br>
+      Зміна кількості ділянок після підтвердження — <b>перерахунку не проводиться</b>.
+    </div>
+
+    <div class="gold-box">
+      📞 Після отримання заявки менеджер зв'яжеться з вами для узгодження вартості, транспортних витрат та дати виїзду.<br><br>
+      <b>+38 096 121 09 06 · @vitaliy_bud</b>
+    </div>
+
     <div class="agree-box" id="agreeBox" onclick="toggleAgree()">
       <div class="chk" id="chkIcon"></div>
-      <div class="agree-text">Я ознайомився(-лась) з умовами та <b>погоджуюся з порядком оплати</b>, включаючи організаційний збір та умови скасування</div>
+      <div class="agree-text">Я ознайомився(-лась) з умовами та <b>погоджуюся на виїзд геодезиста</b> після узгодження деталей з менеджером</div>
     </div>
+
     <div class="alert" id="alert2">Підтвердіть ознайомлення з умовами ☝️</div>
-    <button class="btn btn-gold" onclick="goStep3()">ДАЛІ → ПІДПИСАТИ ЗАЯВКУ</button>
+  </div>
+
+  <div class="sticky-btn">
     <button class="btn btn-ghost" onclick="goStep(1)">← НАЗАД</button>
+    <button class="btn btn-gold" onclick="goStep3()">ДАЛІ → ПІДПИСАТИ</button>
   </div>
 </div>
-<div class="screen" id="screen3">
-  <div class="card">
+
+<!-- ══ ЕКРАН 3 ══ -->
+<div class="screen pb90" id="screen3">
+  <div class="section" style="margin-top:16px">
     <div class="stitle">✍️ Підпис замовника</div>
-    <p style="font-size:12px;color:var(--gray);margin-bottom:14px;font-weight:600">Підпишіть пальцем — підтверджує вашу згоду з умовами заявки</p>
-    <div class="sig-wrap" id="sigWrap"><canvas id="sigCanvas"></canvas><div class="sig-hint" id="sigHint">✍ Підпишіть тут</div></div>
+    <p style="font-size:11px;color:var(--gray);margin-bottom:14px;letter-spacing:.3px;line-height:1.6">Підпишіть пальцем у полі нижче — підтверджує вашу згоду з умовами заявки</p>
+    <div class="sig-wrap" id="sigWrap">
+      <canvas id="sigCanvas"></canvas>
+      <div class="sig-hint" id="sigHint">✍ Підпишіть тут</div>
+    </div>
     <button class="sig-clear" onclick="clearSig()">🗑 Очистити підпис</button>
-    <div class="alert" id="alert3">Поставте підпис ☝️</div>
-    <button class="btn btn-gold" onclick="goStep4()">ДАЛІ → ПІДТВЕРДИТИ</button>
-    <button class="btn btn-ghost" onclick="goStep(2)">← НАЗАД</button>
   </div>
-</div>
-<div class="screen" id="screen4">
-  <div class="card">
-    <div class="stitle">✅ Перевірте заявку</div>
+
+  <div class="section">
+    <div class="stitle">✅ Підсумок заявки</div>
     <div id="summaryBox"></div>
-    <div style="margin-top:14px"><div class="stitle">✍️ Ваш підпис</div>
-    <img id="sigPreview" style="background:#fff;border-radius:8px;width:100%;max-height:90px;object-fit:contain;border:1px solid rgba(245,200,66,.2)"></div>
-    <div class="alert" id="alert4"></div>
-    <button class="btn btn-gold" id="submitBtn" onclick="submitForm()">📨 НАДІСЛАТИ ЗАЯВКУ</button>
-    <button class="btn btn-ghost" onclick="goStep(3)">← НАЗАД</button>
+  </div>
+
+  <div class="alert" id="alert3" style="margin:0 14px 14px">Поставте підпис ☝️</div>
+
+  <div class="sticky-btn">
+    <button class="btn btn-ghost" onclick="goStep(2)">← НАЗАД</button>
+    <button class="btn btn-gold" id="submitBtn" onclick="submitForm()">📨 НАДІСЛАТИ</button>
   </div>
 </div>
+
+<!-- SUCCESS -->
 <div class="screen" id="screenSuccess">
   <div class="success-screen">
-    <div class="sicon">🎉</div><h2>Заявку прийнято!</h2>
-    <p>Дякуємо! Ваша заявка та підпис надіслані.<br><br>Спеціаліст зв'яжеться з вами найближчим часом.<br><br>
-    <strong style="color:var(--gold);font-size:17px">+38 096 121 09 06</strong><br>
-    <span style="color:var(--gray)">Telegram: @vitaliy_bud</span><br><br>
-    <span id="signDate" style="font-size:11px;color:var(--gray)"></span></p>
+    <div class="sicon">🎉</div>
+    <h2>Заявку прийнято!</h2>
+    <div class="success-divider"></div>
+    <p>Дякуємо за звернення до БудЕксперт.<br>
+    Менеджер зв'яжеться з вами найближчим часом<br>
+    для узгодження вартості та дати виїзду.<br><br>
+    <strong style="color:var(--gold2);font-size:18px;letter-spacing:1px">+38 096 121 09 06</strong><br>
+    <span style="color:var(--gray);letter-spacing:.5px">Telegram: @vitaliy_bud</span><br><br>
+    <span id="signDate" style="font-size:10px;color:var(--gray);letter-spacing:1px"></span></p>
   </div>
 </div>
+
 <script>
+// ── ЗІРКИ ──
+(function(){
+  const c=document.getElementById('stars');
+  for(let i=0;i<60;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const sz=Math.random()*2+.5;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:${Math.random()*4}s`;
+    c.appendChild(s);
+  }
+})();
+
 const BOT_TOKEN='8162372508:AAEx1LUJAFheAbcocS9JIe3m8UgmlzqoUt0';
 const ADMIN_ID='8531471694';
-const ORG_FEE=1000;
 let agreed=false,isSigned=false,signatureData=null,canvas,ctx,drawing=false;
-const stepLabels=['','Ваші дані','Умови та оплата','Підпис','Підтвердження'];
-function goStep(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(n==='success'?'screenSuccess':'screen'+n).classList.add('active');if(n!=='success')updateProgress(n);else{document.getElementById('progressBar').style.display='none';document.getElementById('stepLabel').style.display='none';}window.scrollTo(0,0);}
-function updateProgress(n){for(let i=1;i<=4;i++){const d=document.getElementById('dot'+i);d.classList.remove('active','done');if(i<n){d.classList.add('done');d.textContent='✓';}else if(i===n){d.classList.add('active');d.textContent=i;}else d.textContent=i;if(i<4)document.getElementById('line'+i).classList.toggle('done',i<n);}document.getElementById('stepLabel').textContent=stepLabels[n];}
-function calcTotal(){const geo=parseFloat(v('geoSum'))||0;document.getElementById('geoPrice').textContent=geo?geo+' грн':'—';document.getElementById('totalPrice').textContent=geo?(geo+ORG_FEE)+' грн':'—';}
-function goStep2(){if(!v('name')||!v('phone')||!v('kn1')||!v('address')||!v('geoSum')||!v('advSum')){showAlert('alert1');return;}hideAlert('alert1');document.getElementById('geoOnSite').textContent=v('advSum')+' грн аванс + залишок на місці';goStep(2);}
-function markPaid(){setTimeout(()=>{const s=document.getElementById('payStatus');s.textContent='✅ Дякуємо за оплату! Тепер натисніть Далі';s.style.color='#27ae60';},1500);}
-function toggleAgree(){agreed=!agreed;document.getElementById('agreeBox').classList.toggle('on',agreed);const c=document.getElementById('chkIcon');c.classList.toggle('on',agreed);c.textContent=agreed?'✓':'';if(agreed)hideAlert('alert2');}
-function goStep3(){if(!agreed){showAlert('alert2');return;}hideAlert('alert2');goStep(3);setTimeout(initCanvas,100);}
-function initCanvas(){canvas=document.getElementById('sigCanvas');canvas.width=canvas.parentElement.offsetWidth;canvas.height=170;ctx=canvas.getContext('2d');ctx.strokeStyle='#111';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.lineJoin='round';canvas.addEventListener('touchstart',onStart,{passive:false});canvas.addEventListener('touchmove',onMove,{passive:false});canvas.addEventListener('touchend',()=>drawing=false);canvas.addEventListener('mousedown',onStart);canvas.addEventListener('mousemove',onMove);canvas.addEventListener('mouseup',()=>drawing=false);}
+const stepLabels=['','ВАШІ ДАНІ','УМОВИ','ПІДПИС І ВІДПРАВКА'];
+
+function goStep(n){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(n==='success'?'screenSuccess':'screen'+n).classList.add('active');
+  if(n!=='success')updateProgress(n);
+  else{document.querySelector('.progress-wrap').style.display='none';}
+  window.scrollTo(0,0);
+}
+function updateProgress(n){
+  for(let i=1;i<=3;i++){
+    const d=document.getElementById('dot'+i);
+    d.classList.remove('active','done');
+    if(i<n){d.classList.add('done');d.textContent='✓';}
+    else if(i===n){d.classList.add('active');d.textContent=i;}
+    else d.textContent=i;
+    if(i<3)document.getElementById('line'+i).classList.toggle('done',i<n);
+  }
+  document.getElementById('stepLabel').textContent=stepLabels[n];
+}
+function validateKN(){
+  const k1=v('kn1');
+  if(k1.length!==10){hl('kn1');return false;}
+  if(!v('kn2')){hl('kn2');return false;}
+  if(!v('kn3')){hl('kn3');return false;}
+  if(!v('kn4')){hl('kn4');return false;}
+  return true;
+}
+function hl(id){const el=document.getElementById(id);el.style.borderColor='var(--danger)';setTimeout(()=>el.style.borderColor='',2000);el.focus();}
+function goStep2(){
+  if(!v('name')||!v('phone')||!v('address')){showAlert('alert1','Заповніть обов\'язкові поля (*)');return;}
+  if(!v('kn1')){showAlert('alert1','Введіть кадастровий номер');return;}
+  if(!validateKN()){showAlert('alert1','Перевірте кадастровий номер');return;}
+  hideAlert('alert1');goStep(2);
+}
+function toggleAgree(){
+  agreed=!agreed;
+  document.getElementById('agreeBox').classList.toggle('on',agreed);
+  const c=document.getElementById('chkIcon');
+  c.classList.toggle('on',agreed);c.textContent=agreed?'✓':'';
+  if(agreed)hideAlert('alert2');
+}
+function goStep3(){
+  if(!agreed){showAlert('alert2');return;}
+  hideAlert('alert2');renderSummary();goStep(3);setTimeout(initCanvas,100);
+}
+function initCanvas(){
+  canvas=document.getElementById('sigCanvas');
+  canvas.width=canvas.parentElement.offsetWidth;canvas.height=180;
+  ctx=canvas.getContext('2d');
+  ctx.strokeStyle='#1a1a1a';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.lineJoin='round';
+  canvas.addEventListener('touchstart',onStart,{passive:false});
+  canvas.addEventListener('touchmove',onMove,{passive:false});
+  canvas.addEventListener('touchend',()=>drawing=false);
+  canvas.addEventListener('mousedown',onStart);
+  canvas.addEventListener('mousemove',onMove);
+  canvas.addEventListener('mouseup',()=>drawing=false);
+}
 function getPos(e){const r=canvas.getBoundingClientRect();const s=e.touches?e.touches[0]:e;return{x:s.clientX-r.left,y:s.clientY-r.top};}
 function onStart(e){e.preventDefault();drawing=true;const p=getPos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);}
-function onMove(e){e.preventDefault();if(!drawing)return;const p=getPos(e);ctx.lineTo(p.x,p.y);ctx.stroke();if(!isSigned){isSigned=true;document.getElementById('sigHint').style.opacity='0';document.getElementById('sigWrap').classList.add('on');}}
+function onMove(e){
+  e.preventDefault();if(!drawing)return;
+  const p=getPos(e);ctx.lineTo(p.x,p.y);ctx.stroke();
+  if(!isSigned){isSigned=true;document.getElementById('sigHint').style.opacity='0';document.getElementById('sigWrap').classList.add('on');}
+}
 function clearSig(){if(!ctx)return;ctx.clearRect(0,0,canvas.width,canvas.height);isSigned=false;document.getElementById('sigHint').style.opacity='1';document.getElementById('sigWrap').classList.remove('on');}
-function goStep4(){if(!isSigned){showAlert('alert3');return;}hideAlert('alert3');signatureData=canvas.toDataURL('image/png');renderSummary();goStep(4);}
-function renderSummary(){const geo=parseFloat(v('geoSum'))||0;const adv=parseFloat(v('advSum'))||0;const rows=[['👤 Замовник',v('name')],['📞 Телефон',v('phone')],['🗂 Кадастровий №',getKN()],['📍 Адреса',v('address')],['📦 Ділянок',v('parcels')+(v('area')?', '+v('area')+' га':'')],['🏠 Орг. збір (БудЕксперт)','1 000 грн'],['📐 Геодезичні роботи',geo+' грн'],['🟡 Аванс геодезисту',adv+' грн'],['💵 Разом',(geo+ORG_FEE)+' грн']];document.getElementById('summaryBox').innerHTML=rows.map(([l,val])=>`<div class="sum-row"><span class="sum-l">${l}</span><span class="sum-r">${val}</span></div>`).join('');document.getElementById('sigPreview').src=signatureData;}
-async function submitForm(){const btn=document.getElementById('submitBtn');btn.disabled=true;btn.innerHTML='<span class="spinner"></span> НАДСИЛАЄМО...';const geo=parseFloat(v('geoSum'))||0;const adv=parseFloat(v('advSum'))||0;const now=new Date().toLocaleString('uk-UA');const msg=`📋 *НОВА ЗАЯВКА — Винос меж*\n\n`+`👤 *Замовник:* ${v('name')}\n`+`📞 *Телефон:* ${v('phone')}\n`+(v('ipn')?`🪪 *ІПН:* ${v('ipn')}\n`:'')+`\n🗂 *КН:* \`${getKN()}\`\n`+`📍 *Адреса:* ${v('address')}\n`+`📦 *Ділянок:* ${v('parcels')}${v('area')?', '+v('area')+' га':''}\n`+(v('comment')?`💬 *Коментар:* ${v('comment')}\n`:'')+`\n🏠 *Орг. збір:* 1 000 грн ✅ сплачено\n`+`📐 *Геодезичні роботи:* ${geo} грн\n`+`🟡 *Аванс геодезисту:* ${adv} грн\n`+`💵 *Разом:* ${geo+ORG_FEE} грн\n`+`\n📅 *Підписано:* ${now}\n`+`✅ Замовник підписав заявку-погодження`;try{await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:ADMIN_ID,text:msg,parse_mode:'Markdown'})});const blob=await(await fetch(signatureData)).blob();const fd=new FormData();fd.append('chat_id',ADMIN_ID);fd.append('photo',blob,'pidpys.png');fd.append('caption',`✍️ Підпис: ${v('name')} | ${v('phone')}`);await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`,{method:'POST',body:fd});document.getElementById('signDate').textContent='Дата: '+now;goStep('success');}catch(e){showAlert('alert4','⚠️ Помилка надсилання. Перевірте інтернет.');btn.disabled=false;btn.innerHTML='📨 НАДІСЛАТИ ЗАЯВКУ';}}
+function renderSummary(){
+  const rows=[
+    ['👤 Замовник',v('name')],
+    ['📞 Телефон',v('phone')],
+    ['🗂 Кадастровий №',getKN()],
+    ['📍 Адреса',v('address')],
+    ['📦 Ділянок',v('parcels')+(v('area')?', '+v('area')+' га':'')],
+    ['💰 Вартість послуги','за домовленістю'],
+    ['🚗 Транспортні витрати','після узгодження'],
+  ];
+  document.getElementById('summaryBox').innerHTML=rows.map(([l,val])=>
+    `<div class="sum-row"><span class="sum-l">${l}</span><span class="sum-r">${val}</span></div>`
+  ).join('');
+}
+async function submitForm(){
+  if(!isSigned){showAlert('alert3');return;}
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span> НАДСИЛАЄМО...';
+  signatureData=canvas.toDataURL('image/png');
+  const now=new Date().toLocaleString('uk-UA');
+  const msg=
+    `📋 *НОВА ЗАЯВКА — Винос меж*\n\n`+
+    `👤 *Замовник:* ${v('name')}\n`+
+    `📞 *Телефон:* ${v('phone')}\n`+
+    (v('ipn')?`🪪 *ІПН:* ${v('ipn')}\n`:'')+
+    `\n🗂 *КН:* \`${getKN()}\`\n`+
+    `📍 *Адреса:* ${v('address')}\n`+
+    `📦 *Ділянок:* ${v('parcels')}${v('area')?', '+v('area')+' га':''}\n`+
+    (v('comment')?`💬 *Коментар:* ${v('comment')}\n`:'')+
+    `\n💰 *Вартість:* за домовленістю\n`+
+    `🚗 *Транспорт:* після узгодження\n`+
+    `\n📅 *Підписано:* ${now}\n`+
+    `✅ Замовник підписав заявку`;
+  try{
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:ADMIN_ID,text:msg,parse_mode:'Markdown'})});
+    const blob=await(await fetch(signatureData)).blob();
+    const fd=new FormData();fd.append('chat_id',ADMIN_ID);fd.append('photo',blob,'pidpys.png');fd.append('caption',`✍️ ${v('name')} | ${v('phone')}`);
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`,{method:'POST',body:fd});
+    document.getElementById('signDate').textContent='ПІДПИСАНО: '+now.toUpperCase();
+    goStep('success');
+  }catch(e){
+    showAlert('alert3','⚠️ Помилка надсилання. Перевірте інтернет.');
+    btn.disabled=false;btn.innerHTML='📨 НАДІСЛАТИ';
+  }
+}
 function getKN(){const a=v('kn1'),b=v('kn2'),c=v('kn3'),d=v('kn4');return a?`${a}:${b}:${c}:${d}`:'—';}
 function v(id){return document.getElementById(id)?.value.trim()||'';}
 function showAlert(id,msg){const el=document.getElementById(id);if(msg)el.textContent=msg;el.classList.add('show');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
 function hideAlert(id){document.getElementById(id).classList.remove('show');}
-['kn1','kn2','kn3'].forEach((id,i)=>{const lens=[10,3,3];document.getElementById(id).addEventListener('input',function(){if(this.value.length>=lens[i])document.getElementById(['kn2','kn3','kn4'][i]).focus();});});
-document.getElementById('phone').addEventListener('input',function(){let val=this.value.replace(/\D/g,'');if(val.startsWith('380'))val='+'+val;else if(val.startsWith('0'))val='+38'+val;this.value=val;});
+const knLens=[10,2,3,4];
+['kn1','kn2','kn3','kn4'].forEach((id,i)=>{
+  document.getElementById(id).addEventListener('input',function(){
+    this.value=this.value.replace(/\D/g,'');
+    if(this.value.length>=knLens[i]&&i<3)document.getElementById(['kn2','kn3','kn4'][i]).focus();
+  });
+});
+document.getElementById('phone').addEventListener('input',function(){
+  let val=this.value.replace(/\D/g,'');
+  if(val.startsWith('380'))val='+'+val;
+  else if(val.startsWith('0'))val='+38'+val;
+  this.value=val;
+});
 </script>
 </body>
 </html>
