@@ -8,23 +8,14 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#0a0a0a;
-  --bg2:#111111;
-  --card:#141414;
-  --card2:#1a1a1a;
-  --border:rgba(201,160,50,.2);
-  --gold:#c9a032;
-  --gold2:#e8c96a;
-  --gold3:#f5e090;
-  --white:#f0ead6;
-  --gray:#6b6b6b;
-  --light:#a09070;
-  --danger:#c0392b;
-  --r:12px;
+  --bg:#0a0a0a;--bg2:#111111;--card:#141414;--card2:#1a1a1a;
+  --border:rgba(201,160,50,.2);--gold:#c9a032;--gold2:#e8c96a;
+  --gold3:#f5e090;--white:#f0ead6;--gray:#6b6b6b;--light:#a09070;
+  --danger:#c0392b;--r:12px;
 }
 html,body{min-height:100%;background:var(--bg);font-family:'Montserrat',sans-serif;color:var(--white);overflow-x:hidden}
 
-/* STARS BG */
+/* STARS */
 .stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
 .star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--d,3s) infinite var(--delay,0s)}
 @keyframes twinkle{0%,100%{opacity:.1;transform:scale(1)}50%{opacity:.8;transform:scale(1.3)}}
@@ -41,12 +32,11 @@ html,body{min-height:100%;background:var(--bg);font-family:'Montserrat',sans-ser
 .progress-wrap{padding:20px 20px 0;position:relative;z-index:1}
 .progress-title{font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;text-align:center;margin-bottom:12px}
 .progress{display:flex;align-items:center;gap:0}
-.dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:1px solid var(--gray);color:var(--gray);transition:all .4s;flex-shrink:0;font-family:'Montserrat',sans-serif}
+.dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:1px solid var(--gray);color:var(--gray);transition:all .4s;flex-shrink:0}
 .dot.active{border-color:var(--gold);color:var(--gold);box-shadow:0 0 16px rgba(201,160,50,.3)}
 .dot.done{border-color:var(--gold);background:var(--gold);color:var(--bg);box-shadow:0 0 12px rgba(201,160,50,.4)}
 .pline{flex:1;height:1px;background:var(--gray);transition:background .4s}
 .pline.done{background:var(--gold)}
-.slabel{text-align:center;font-size:10px;color:var(--gold);padding:8px 20px 16px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
 
 /* SECTION */
 .section{position:relative;z-index:1;margin:0 14px 14px;padding:22px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
@@ -69,15 +59,15 @@ select option{background:var(--card)}
 .kn-grid input{text-align:center;font-size:13px;padding:12px 4px;letter-spacing:.5px}
 .kn-hint{font-size:9px;color:var(--gray);margin-top:6px;letter-spacing:.5px}
 
-/* WARN / INFO */
+/* BOXES */
 .gold-box{background:rgba(201,160,50,.06);border:1px solid rgba(201,160,50,.2);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--light);margin-bottom:16px;line-height:1.7;position:relative;overflow:hidden}
 .gold-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold2))}
 .gold-box b{color:var(--gold2)}
 .red-box{background:rgba(192,57,43,.07);border:1px solid rgba(192,57,43,.25);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--light);margin-bottom:16px;line-height:1.7;position:relative;overflow:hidden}
 .red-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--danger)}
 .red-box b{color:#e74c3c}
-.disclaimer{background:rgba(255,255,255,.03);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--gray);line-height:1.8;border:1px solid rgba(255,255,255,.06);margin-bottom:16px}
-.disclaimer b{color:var(--light)}
+.info-box{background:rgba(255,255,255,.03);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--gray);line-height:1.8;border:1px solid rgba(255,255,255,.06);margin-bottom:16px}
+.info-box b{color:var(--light)}
 
 /* AGREE */
 .agree-box{display:flex;align-items:flex-start;gap:14px;background:rgba(201,160,50,.05);border-radius:10px;padding:16px;border:1px solid rgba(201,160,50,.15);cursor:pointer;margin-bottom:16px;transition:all .2s}
@@ -86,13 +76,6 @@ select option{background:var(--card)}
 .chk.on{background:var(--gold);border-color:var(--gold);color:var(--bg)}
 .agree-text{font-size:12px;color:var(--light);line-height:1.6;font-weight:500}
 .agree-text b{color:var(--gold2)}
-
-/* SIGNATURE */
-.sig-wrap{background:#fff;border-radius:10px;border:1px solid rgba(201,160,50,.3);position:relative;overflow:hidden;box-shadow:inset 0 0 30px rgba(0,0,0,.05)}
-.sig-wrap.on{border-color:var(--gold);box-shadow:0 0 20px rgba(201,160,50,.15)}
-#sigCanvas{display:block;touch-action:none;width:100%;height:180px;cursor:crosshair}
-.sig-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:13px;color:#ccc;pointer-events:none;white-space:nowrap;transition:opacity .3s;font-family:'Montserrat',sans-serif}
-.sig-clear{background:none;border:none;color:var(--danger);font-size:11px;cursor:pointer;padding:7px 0;text-decoration:underline;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.5px}
 
 /* SUMMARY */
 .sum-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;gap:8px}
@@ -104,13 +87,12 @@ select option{background:var(--card)}
 .sticky-btn{position:fixed;bottom:0;left:0;right:0;padding:14px 16px 20px;background:linear-gradient(to top,var(--bg) 70%,transparent);z-index:50;display:flex;gap:10px}
 .btn{padding:15px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:800;font-family:'Montserrat',sans-serif;letter-spacing:1.5px;text-transform:uppercase;transition:all .2s}
 .btn-gold{flex:2;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg);box-shadow:0 4px 24px rgba(201,160,50,.4)}
-.btn-gold:active{transform:scale(.97);box-shadow:0 2px 12px rgba(201,160,50,.3)}
+.btn-gold:active{transform:scale(.97)}
 .btn-gold:disabled{opacity:.4;cursor:not-allowed;transform:none}
 .btn-ghost{flex:1;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--gray)}
-.btn-ghost:active{background:rgba(255,255,255,.05)}
 
 /* ALERT */
-.alert{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:12px;color:#e74c3c;margin-top:10px;display:none;font-weight:700;letter-spacing:.3px}
+.alert{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:12px;color:#e74c3c;margin-top:10px;display:none;font-weight:700}
 .alert.show{display:block}
 
 /* SUCCESS */
@@ -132,7 +114,6 @@ select option{background:var(--card)}
 </head>
 <body>
 
-<!-- ЗІРКИ -->
 <div class="stars" id="stars"></div>
 
 <!-- HEADER -->
@@ -165,7 +146,6 @@ select option{background:var(--card)}
     <div class="stitle">👤 Ваші дані</div>
     <div class="field"><label>ПІБ повністю *</label><input type="text" id="name" placeholder="Іваненко Іван Іванович" autocomplete="name"></div>
     <div class="field"><label>Телефон *</label><input type="tel" id="phone" placeholder="+38 096 000 00 00" maxlength="13"></div>
-    <div class="field"><label>ІПН / РНОКПП</label><input type="text" id="ipn" placeholder="1234567890" maxlength="12" inputmode="numeric"></div>
   </div>
 
   <div class="section">
@@ -184,15 +164,16 @@ select option{background:var(--card)}
     <div class="field"><label>Адреса / населений пункт *</label><input type="text" id="address" placeholder="с. Назва, Фастівський р-н"></div>
     <div class="row2">
       <div class="field"><label>К-сть ділянок *</label>
-        <select id="parcels"><option value="1">1 ділянка</option><option value="2">2 ділянки</option><option value="3">3 ділянки</option><option value="4+">4+</option></select>
+        <select id="parcels">
+          <option value="1">1 ділянка</option>
+          <option value="2">2 ділянки</option>
+          <option value="3">3 ділянки</option>
+          <option value="4+">4+</option>
+        </select>
       </div>
       <div class="field"><label>Площа (га)</label><input type="text" id="area" placeholder="0.25" inputmode="decimal"></div>
     </div>
     <div class="field"><label>Коментар</label><textarea id="comment" rows="2" placeholder="Побажання, зручна дата виїзду..."></textarea></div>
-  </div>
-
-  <div class="red-box" style="margin:0 14px 90px">
-    🚗 <b>Транспортні витрати</b> геодезиста не входять у вартість послуги та оплачуються окремо після узгодження з менеджером до виїзду на об'єкт.
   </div>
 
   <div class="alert" id="alert1" style="margin:0 14px 14px">Заповніть усі обов'язкові поля (*)</div>
@@ -207,17 +188,18 @@ select option{background:var(--card)}
   <div class="section" style="margin-top:16px">
     <div class="stitle">📋 Умови заявки</div>
 
-    <div class="disclaimer">
-      <b>БудЕксперт</b> є координатором послуг та здійснює підбір кваліфікованого виконавця. Безпосереднє виконання геодезичних робіт здійснюється сертифікованим підрядником (ФОП), з яким Замовник розраховується окремо на об'єкті.
+    <div class="info-box">
+      <b>БудЕксперт</b> здійснює пошук та підбір сертифікованих спеціалістів по Київській області. Безпосереднє виконання геодезичних робіт здійснюється сертифікованим підрядником (ФОП), з яким Замовник розраховується окремо на об'єкті.
     </div>
 
     <div class="red-box">
       ⚠️ При скасуванні виїзду менш ніж за <b>24 години</b> — транспортні витрати не компенсуються.<br><br>
-      Зміна кількості ділянок після підтвердження — <b>перерахунку не проводиться</b>.
+      🚗 <b>Транспортні витрати</b> геодезиста не входять у вартість та оплачуються окремо.
     </div>
 
     <div class="gold-box">
-      📞 Після отримання заявки менеджер зв'яжеться з вами для узгодження вартості, транспортних витрат та дати виїзду.<br><br>
+      📌 Після погодження ціни для <b>бронювання заявки</b> необхідно сплатити <b>30% від вартості</b> робіт на картку координатора.<br><br>
+      Решта суми сплачується виконавцю безпосередньо на об'єкті після виконання робіт.<br><br>
       <b>+38 096 121 09 06 · @vitaliy_bud</b>
     </div>
 
@@ -231,28 +213,18 @@ select option{background:var(--card)}
 
   <div class="sticky-btn">
     <button class="btn btn-ghost" onclick="goStep(1)">← НАЗАД</button>
-    <button class="btn btn-gold" onclick="goStep3()">ДАЛІ → ПІДПИСАТИ</button>
+    <button class="btn btn-gold" onclick="goStep3()">ДАЛІ → ПІДСУМОК</button>
   </div>
 </div>
 
 <!-- ══ ЕКРАН 3 ══ -->
 <div class="screen pb90" id="screen3">
   <div class="section" style="margin-top:16px">
-    <div class="stitle">✍️ Підпис замовника</div>
-    <p style="font-size:11px;color:var(--gray);margin-bottom:14px;letter-spacing:.3px;line-height:1.6">Підпишіть пальцем у полі нижче — підтверджує вашу згоду з умовами заявки</p>
-    <div class="sig-wrap" id="sigWrap">
-      <canvas id="sigCanvas"></canvas>
-      <div class="sig-hint" id="sigHint">✍ Підпишіть тут</div>
-    </div>
-    <button class="sig-clear" onclick="clearSig()">🗑 Очистити підпис</button>
-  </div>
-
-  <div class="section">
     <div class="stitle">✅ Підсумок заявки</div>
     <div id="summaryBox"></div>
   </div>
 
-  <div class="alert" id="alert3" style="margin:0 14px 14px">Поставте підпис ☝️</div>
+  <div class="alert" id="alert3" style="margin:0 14px 14px"></div>
 
   <div class="sticky-btn">
     <button class="btn btn-ghost" onclick="goStep(2)">← НАЗАД</button>
@@ -271,156 +243,165 @@ select option{background:var(--card)}
     для узгодження вартості та дати виїзду.<br><br>
     <strong style="color:var(--gold2);font-size:18px;letter-spacing:1px">+38 096 121 09 06</strong><br>
     <span style="color:var(--gray);letter-spacing:.5px">Telegram: @vitaliy_bud</span><br><br>
-    <div style="margin-top:10px;padding:10px 16px;background:rgba(201,160,50,.1);border-radius:8px;border:1px solid rgba(201,160,50,.3)"><span style="font-size:11px;color:var(--gray);letter-spacing:1px">НОМЕР ЗАЯВКИ: </span><span id="orderNum" style="color:var(--gold2);font-weight:800;letter-spacing:2px"></span></div>
-    <span id="signDate" style="font-size:10px;color:var(--gray);letter-spacing:1px"></span></p>
+    <div style="margin-top:10px;padding:10px 16px;background:rgba(201,160,50,.1);border-radius:8px;border:1px solid rgba(201,160,50,.3)">
+      <span style="font-size:11px;color:var(--gray);letter-spacing:1px">НОМЕР ЗАЯВКИ: </span>
+      <span id="orderNum" style="color:var(--gold2);font-weight:800;letter-spacing:2px"></span>
+    </div></p>
   </div>
 </div>
 
 <script>
-// ── ЗІРКИ ──
+// ЗІРКИ
 (function(){
-  const c=document.getElementById('stars');
-  for(let i=0;i<60;i++){
-    const s=document.createElement('div');
-    s.className='star';
-    const sz=Math.random()*2+.5;
-    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:${Math.random()*4}s`;
+  const c = document.getElementById('stars');
+  for(let i = 0; i < 60; i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    const sz = Math.random() * 2 + .5;
+    s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:${Math.random()*4}s`;
     c.appendChild(s);
   }
 })();
 
-const BOT_TOKEN='8162372508:AAEx1LUJAFheAbcocS9JIe3m8UgmlzqoUt0';
-const ADMIN_ID='8531471694';
-let agreed=false,isSigned=false,signatureData=null,canvas,ctx,drawing=false;
-const stepLabels=['','ВАШІ ДАНІ','УМОВИ','ПІДПИС І ВІДПРАВКА'];
+const BOT_TOKEN = 'ВСТАВТЕ_ТОКЕН_БОТА';
+const ADMIN_ID  = '8531471694';
+let agreed = false;
+const stepLabels = ['','ВАШІ ДАНІ','УМОВИ','ВІДПРАВКА'];
 
 function goStep(n){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(n==='success'?'screenSuccess':'screen'+n).classList.add('active');
-  if(n!=='success')updateProgress(n);
-  else{document.querySelector('.progress-wrap').style.display='none';}
-  window.scrollTo(0,0);
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(n === 'success' ? 'screenSuccess' : 'screen' + n).classList.add('active');
+  if(n !== 'success') updateProgress(n);
+  else document.querySelector('.progress-wrap').style.display = 'none';
+  window.scrollTo(0, 0);
 }
+
 function updateProgress(n){
-  for(let i=1;i<=3;i++){
-    const d=document.getElementById('dot'+i);
+  for(let i = 1; i <= 3; i++){
+    const d = document.getElementById('dot' + i);
     d.classList.remove('active','done');
-    if(i<n){d.classList.add('done');d.textContent='✓';}
-    else if(i===n){d.classList.add('active');d.textContent=i;}
-    else d.textContent=i;
-    if(i<3)document.getElementById('line'+i).classList.toggle('done',i<n);
+    if(i < n){ d.classList.add('done'); d.textContent = '✓'; }
+    else if(i === n){ d.classList.add('active'); d.textContent = i; }
+    else d.textContent = i;
+    if(i < 3) document.getElementById('line' + i).classList.toggle('done', i < n);
   }
-  document.getElementById('stepLabel').textContent=stepLabels[n];
+  document.getElementById('stepLabel').textContent = stepLabels[n];
 }
+
 function validateKN(){
-  const k1=v('kn1');
-  if(k1.length!==10){hl('kn1');return false;}
-  if(!v('kn2')){hl('kn2');return false;}
-  if(!v('kn3')){hl('kn3');return false;}
-  if(!v('kn4')){hl('kn4');return false;}
+  const k1 = v('kn1');
+  if(k1.length !== 10){ hl('kn1'); return false; }
+  if(!v('kn2')){ hl('kn2'); return false; }
+  if(!v('kn3')){ hl('kn3'); return false; }
+  if(!v('kn4')){ hl('kn4'); return false; }
   return true;
 }
-function hl(id){const el=document.getElementById(id);el.style.borderColor='var(--danger)';setTimeout(()=>el.style.borderColor='',2000);el.focus();}
+
+function hl(id){
+  const el = document.getElementById(id);
+  el.style.borderColor = 'var(--danger)';
+  setTimeout(() => el.style.borderColor = '', 2000);
+  el.focus();
+}
+
 function goStep2(){
-  if(!v('name')||!v('phone')||!v('address')){showAlert('alert1','Заповніть обов\'язкові поля (*)');return;}
-  if(!v('kn1')){showAlert('alert1','Введіть кадастровий номер');return;}
-  if(!validateKN()){showAlert('alert1','Перевірте кадастровий номер');return;}
-  hideAlert('alert1');goStep(2);
+  if(!v('name') || !v('phone') || !v('address')){ showAlert('alert1','Заповніть обов\'язкові поля (*)'); return; }
+  if(!v('kn1')){ showAlert('alert1','Введіть кадастровий номер'); return; }
+  if(!validateKN()){ showAlert('alert1','Перевірте кадастровий номер'); return; }
+  hideAlert('alert1');
+  goStep(2);
 }
+
 function toggleAgree(){
-  agreed=!agreed;
-  document.getElementById('agreeBox').classList.toggle('on',agreed);
-  const c=document.getElementById('chkIcon');
-  c.classList.toggle('on',agreed);c.textContent=agreed?'✓':'';
-  if(agreed)hideAlert('alert2');
+  agreed = !agreed;
+  document.getElementById('agreeBox').classList.toggle('on', agreed);
+  const c = document.getElementById('chkIcon');
+  c.classList.toggle('on', agreed);
+  c.textContent = agreed ? '✓' : '';
+  if(agreed) hideAlert('alert2');
 }
+
 function goStep3(){
-  if(!agreed){showAlert('alert2');return;}
-  hideAlert('alert2');renderSummary();goStep(3);setTimeout(initCanvas,100);
+  if(!agreed){ showAlert('alert2'); return; }
+  hideAlert('alert2');
+  renderSummary();
+  goStep(3);
 }
-function initCanvas(){
-  canvas=document.getElementById('sigCanvas');
-  canvas.width=canvas.parentElement.offsetWidth;canvas.height=180;
-  ctx=canvas.getContext('2d');
-  ctx.strokeStyle='#1a1a1a';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.lineJoin='round';
-  canvas.addEventListener('touchstart',onStart,{passive:false});
-  canvas.addEventListener('touchmove',onMove,{passive:false});
-  canvas.addEventListener('touchend',()=>drawing=false);
-  canvas.addEventListener('mousedown',onStart);
-  canvas.addEventListener('mousemove',onMove);
-  canvas.addEventListener('mouseup',()=>drawing=false);
-}
-function getPos(e){const r=canvas.getBoundingClientRect();const s=e.touches?e.touches[0]:e;return{x:s.clientX-r.left,y:s.clientY-r.top};}
-function onStart(e){e.preventDefault();drawing=true;const p=getPos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);}
-function onMove(e){
-  e.preventDefault();if(!drawing)return;
-  const p=getPos(e);ctx.lineTo(p.x,p.y);ctx.stroke();
-  if(!isSigned){isSigned=true;document.getElementById('sigHint').style.opacity='0';document.getElementById('sigWrap').classList.add('on');}
-}
-function clearSig(){if(!ctx)return;ctx.clearRect(0,0,canvas.width,canvas.height);isSigned=false;document.getElementById('sigHint').style.opacity='1';document.getElementById('sigWrap').classList.remove('on');}
+
 function renderSummary(){
-  const rows=[
-    ['👤 Замовник',v('name')],
-    ['📞 Телефон',v('phone')],
-    ['🗂 Кадастровий №',getKN()],
-    ['📍 Адреса',v('address')],
-    ['📦 Ділянок',v('parcels')+(v('area')?', '+v('area')+' га':'')],
-    ['💰 Вартість послуги','за домовленістю'],
-    ['🚗 Транспортні витрати','після узгодження'],
+  const rows = [
+    ['👤 Замовник', v('name')],
+    ['📞 Телефон', v('phone')],
+    ['🗂 Кадастровий №', getKN()],
+    ['📍 Адреса', v('address')],
+    ['📦 Ділянок', v('parcels') + (v('area') ? ', ' + v('area') + ' га' : '')],
+    ['💰 Вартість послуги', 'за домовленістю'],
+    ['🚗 Транспортні витрати', 'після узгодження'],
   ];
-  document.getElementById('summaryBox').innerHTML=rows.map(([l,val])=>
+  document.getElementById('summaryBox').innerHTML = rows.map(([l, val]) =>
     `<div class="sum-row"><span class="sum-l">${l}</span><span class="sum-r">${val}</span></div>`
   ).join('');
 }
+
 async function submitForm(){
-  if(!isSigned){showAlert('alert3');return;}
-  const btn=document.getElementById('submitBtn');
-  btn.disabled=true;btn.innerHTML='<span class="spinner"></span> НАДСИЛАЄМО...';
-  signatureData=canvas.toDataURL('image/png');
-  const now=new Date().toLocaleString('uk-UA');
-  const orderNum='#'+new Date().toISOString().slice(2,10).replace(/-/g,'')+'-'+String(Math.floor(Math.random()*900)+100);
-  const msg=
-    `📋 *НОВА ЗАЯВКА ${orderNum} — Винос меж*\n\n`+
-    `👤 *Замовник:* ${v('name')}\n`+
-    `📞 *Телефон:* ${v('phone')}\n`+
-    (v('ipn')?`🪪 *ІПН:* ${v('ipn')}\n`:'')+
-    `\n🗂 *КН:* \`${getKN()}\`\n`+
-    `📍 *Адреса:* ${v('address')}\n`+
-    `📦 *Ділянок:* ${v('parcels')}${v('area')?', '+v('area')+' га':''}\n`+
-    (v('comment')?`💬 *Коментар:* ${v('comment')}\n`:'')+
-    `\n💰 *Вартість:* за домовленістю\n`+
-    `🚗 *Транспорт:* після узгодження\n`+
-    `\n📅 *Підписано:* ${now}\n`+
-    `✅ Замовник підписав заявку`;
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> НАДСИЛАЄМО...';
+
+  const now = new Date().toLocaleString('uk-UA');
+  const orderNum = '#' + new Date().toISOString().slice(2,10).replace(/-/g,'') + '-' + String(Math.floor(Math.random()*900)+100);
+
+  const msg =
+    `📋 *НОВА ЗАЯВКА ${orderNum} — Винос меж*\n\n` +
+    `👤 *Замовник:* ${v('name')}\n` +
+    `📞 *Телефон:* ${v('phone')}\n` +
+    `\n🗂 *КН:* \`${getKN()}\`\n` +
+    `📍 *Адреса:* ${v('address')}\n` +
+    `📦 *Ділянок:* ${v('parcels')}${v('area') ? ', ' + v('area') + ' га' : ''}\n` +
+    (v('comment') ? `💬 *Коментар:* ${v('comment')}\n` : '') +
+    `\n💰 *Вартість:* за домовленістю\n` +
+    `🚗 *Транспорт:* після узгодження\n` +
+    `\n📅 *Підписано:* ${now}`;
+
   try{
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:ADMIN_ID,text:msg,parse_mode:'Markdown'})});
-    const blob=await(await fetch(signatureData)).blob();
-    const fd=new FormData();fd.append('chat_id',ADMIN_ID);fd.append('photo',blob,'pidpys.png');fd.append('caption',`✍️ ${v('name')} | ${v('phone')}`);
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`,{method:'POST',body:fd});
-    document.getElementById('signDate').textContent='ПІДПИСАНО: '+now.toUpperCase();
-    document.getElementById('orderNum').textContent=orderNum;
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:ADMIN_ID, text:msg, parse_mode:'Markdown'})
+    });
+    document.getElementById('orderNum').textContent = orderNum;
     goStep('success');
-  }catch(e){
+  } catch(e){
     showAlert('alert3','⚠️ Помилка надсилання. Перевірте інтернет.');
-    btn.disabled=false;btn.innerHTML='📨 НАДІСЛАТИ';
+    btn.disabled = false;
+    btn.innerHTML = '📨 НАДІСЛАТИ';
   }
 }
-function getKN(){const a=v('kn1'),b=v('kn2'),c=v('kn3'),d=v('kn4');return a?`${a}:${b}:${c}:${d}`:'—';}
-function v(id){return document.getElementById(id)?.value.trim()||'';}
-function showAlert(id,msg){const el=document.getElementById(id);if(msg)el.textContent=msg;el.classList.add('show');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
-function hideAlert(id){document.getElementById(id).classList.remove('show');}
-const knLens=[10,2,3,4];
-['kn1','kn2','kn3','kn4'].forEach((id,i)=>{
-  document.getElementById(id).addEventListener('input',function(){
-    this.value=this.value.replace(/\D/g,'');
-    if(this.value.length>=knLens[i]&&i<3)document.getElementById(['kn2','kn3','kn4'][i]).focus();
+
+function getKN(){
+  const a=v('kn1'), b=v('kn2'), c=v('kn3'), d=v('kn4');
+  return a ? `${a}:${b}:${c}:${d}` : '—';
+}
+function v(id){ return document.getElementById(id)?.value.trim() || ''; }
+function showAlert(id, msg){ const el=document.getElementById(id); if(msg) el.textContent=msg; el.classList.add('show'); el.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+function hideAlert(id){ document.getElementById(id).classList.remove('show'); }
+
+// Автоперехід між полями КН
+const knLens = [10,2,3,4];
+['kn1','kn2','kn3','kn4'].forEach((id,i) => {
+  document.getElementById(id).addEventListener('input', function(){
+    this.value = this.value.replace(/\D/g,'');
+    if(this.value.length >= knLens[i] && i < 3)
+      document.getElementById(['kn2','kn3','kn4'][i]).focus();
   });
 });
-document.getElementById('phone').addEventListener('input',function(){
-  let val=this.value.replace(/\D/g,'');
-  if(val.startsWith('380'))val='+'+val;
-  else if(val.startsWith('0'))val='+38'+val;
-  this.value=val;
+
+// Форматування телефону
+document.getElementById('phone').addEventListener('input', function(){
+  let val = this.value.replace(/\D/g,'');
+  if(val.startsWith('380')) val = '+' + val;
+  else if(val.startsWith('0')) val = '+38' + val;
+  this.value = val;
 });
 </script>
 </body>
