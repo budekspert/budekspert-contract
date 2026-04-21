@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -263,8 +264,9 @@ select option{background:var(--card)}
   }
 })();
 
-const BOT_TOKEN = '8162372508:AAEGON_yktI4b_AuKPi8i1tOf1eJvT3BxB0';
-const ADMIN_ID  = '8531471694';
+const BOT_TOKEN    = '8162372508:AAEGON_yktI4b_AuKPi8i1tOf1eJvT3BxB0';
+const ADMIN_ID     = '8531471694';
+const APPS_SCRIPT  = 'https://script.google.com/macros/s/AKfycbxpjud7vNXYieIzS5bfadPXWI7fzRAE_m6kHaUIcGALVc6rCFNepitpGB4La1THOkWU/exec'; // той самий URL що в Railway
 let agreed = false;
 const stepLabels = ['','ВАШІ ДАНІ','УМОВИ','ВІДПРАВКА'];
 
@@ -348,31 +350,59 @@ async function submitForm(){
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> НАДСИЛАЄМО...';
 
-  const now = new Date().toLocaleString('uk-UA');
-  const orderNum = '#' + new Date().toISOString().slice(2,10).replace(/-/g,'') + '-' + String(Math.floor(Math.random()*900)+100);
+  const now      = new Date().toLocaleString('uk-UA');
+  const parcels  = v('parcels') + (v('area') ? ', ' + v('area') + ' га' : '');
+  const comment  = v('comment') || '—';
+  const kn       = getKN();
 
+  // 1️⃣ Зберігаємо в Google Sheets
+  let orderNum = 'ZAY-????';
+  try {
+    const sheetsRes = await fetch(APPS_SCRIPT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action:    'add_order',
+        tg_id:     0,
+        name:      v('name'),
+        phone:     v('phone'),
+        service:   '📐 Винос меж ділянки',
+        cadastral: kn,
+        city:      v('address'),
+        district:  '',
+        parcels:   parcels,
+        comment:   comment,
+      })
+    });
+    const sheetsData = await sheetsRes.json();
+    if (sheetsData.order_id) orderNum = sheetsData.order_id;
+  } catch(e) {
+    console.warn('Sheets error:', e);
+  }
+
+  // 2️⃣ Надсилаємо повідомлення адміну в Telegram
   const msg =
     `📋 *НОВА ЗАЯВКА ${orderNum} — Винос меж*\n\n` +
     `👤 *Замовник:* ${v('name')}\n` +
     `📞 *Телефон:* ${v('phone')}\n` +
-    `\n🗂 *КН:* \`${getKN()}\`\n` +
+    `\n🗂 *КН:* \`${kn}\`\n` +
     `📍 *Адреса:* ${v('address')}\n` +
-    `📦 *Ділянок:* ${v('parcels')}${v('area') ? ', ' + v('area') + ' га' : ''}\n` +
-    (v('comment') ? `💬 *Коментар:* ${v('comment')}\n` : '') +
+    `📦 *Ділянок:* ${parcels}\n` +
+    `💬 *Коментар:* ${comment}\n` +
     `\n💰 *Вартість:* за домовленістю\n` +
     `🚗 *Транспорт:* після узгодження\n` +
     `\n📅 *Підписано:* ${now}`;
 
-  try{
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({chat_id:ADMIN_ID, text:msg, parse_mode:'Markdown'})
+  try {
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ chat_id: ADMIN_ID, text: msg, parse_mode: 'Markdown' })
     });
     document.getElementById('orderNum').textContent = orderNum;
     goStep('success');
-  } catch(e){
-    showAlert('alert3','⚠️ Помилка надсилання. Перевірте інтернет.');
+  } catch(e) {
+    showAlert('alert3', '⚠️ Помилка надсилання. Перевірте інтернет.');
     btn.disabled = false;
     btn.innerHTML = '📨 НАДІСЛАТИ';
   }
