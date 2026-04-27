@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -15,21 +14,15 @@
   --danger:#c0392b;--r:12px;
 }
 html,body{min-height:100%;background:var(--bg);font-family:'Montserrat',sans-serif;color:var(--white);overflow-x:hidden}
-
-/* STARS */
 .stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
 .star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--d,3s) infinite var(--delay,0s)}
 @keyframes twinkle{0%,100%{opacity:.1;transform:scale(1)}50%{opacity:.8;transform:scale(1.3)}}
-
-/* HEADER */
 .header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.95);backdrop-filter:blur(12px);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
 .hlogo{display:flex;align-items:center;gap:10px}
 .hicon{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 0 20px rgba(201,160,50,.3)}
 .hname{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;color:var(--gold2);letter-spacing:1px}
 .hphone{font-size:10px;color:var(--gray);margin-top:1px;letter-spacing:.5px}
 .hbadge{border:1px solid var(--gold);color:var(--gold);padding:6px 14px;border-radius:6px;font-size:10px;font-weight:800;letter-spacing:2px}
-
-/* PROGRESS */
 .progress-wrap{padding:20px 20px 0;position:relative;z-index:1}
 .progress-title{font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;text-align:center;margin-bottom:12px}
 .progress{display:flex;align-items:center;gap:0}
@@ -38,13 +31,9 @@ html,body{min-height:100%;background:var(--bg);font-family:'Montserrat',sans-ser
 .dot.done{border-color:var(--gold);background:var(--gold);color:var(--bg);box-shadow:0 0 12px rgba(201,160,50,.4)}
 .pline{flex:1;height:1px;background:var(--gray);transition:background .4s}
 .pline.done{background:var(--gold)}
-
-/* SECTION */
 .section{position:relative;z-index:1;margin:0 14px 14px;padding:22px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
 .section::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .stitle{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--gold2);letter-spacing:1px;margin-bottom:18px;display:flex;align-items:center;gap:8px}
-
-/* FIELDS */
 .field{margin-bottom:16px}
 label{display:block;font-size:9px;color:var(--light);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:7px}
 input,select,textarea{width:100%;padding:13px 16px;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:var(--white);font-size:15px;font-family:'Montserrat',sans-serif;outline:none;transition:all .2s;-webkit-appearance:none}
@@ -52,15 +41,11 @@ input:focus,select:focus,textarea:focus{border-color:var(--gold);background:rgba
 input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2);font-size:13px}
 select option{background:var(--card)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-
-/* KN */
 .kn-labels{display:grid;grid-template-columns:2.2fr 1fr 1.2fr 1.2fr;gap:6px;margin-bottom:5px}
 .kn-labels span{font-size:8px;color:var(--gray);text-align:center;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
 .kn-grid{display:grid;grid-template-columns:2.2fr 1fr 1.2fr 1.2fr;gap:6px}
 .kn-grid input{text-align:center;font-size:13px;padding:12px 4px;letter-spacing:.5px}
 .kn-hint{font-size:9px;color:var(--gray);margin-top:6px;letter-spacing:.5px}
-
-/* BOXES */
 .gold-box{background:rgba(201,160,50,.06);border:1px solid rgba(201,160,50,.2);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--light);margin-bottom:16px;line-height:1.7;position:relative;overflow:hidden}
 .gold-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold2))}
 .gold-box b{color:var(--gold2)}
@@ -69,45 +54,32 @@ select option{background:var(--card)}
 .red-box b{color:#e74c3c}
 .info-box{background:rgba(255,255,255,.03);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--gray);line-height:1.8;border:1px solid rgba(255,255,255,.06);margin-bottom:16px}
 .info-box b{color:var(--light)}
-
-/* AGREE */
 .agree-box{display:flex;align-items:flex-start;gap:14px;background:rgba(201,160,50,.05);border-radius:10px;padding:16px;border:1px solid rgba(201,160,50,.15);cursor:pointer;margin-bottom:16px;transition:all .2s}
 .agree-box.on{border-color:var(--gold);background:rgba(201,160,50,.09)}
 .chk{width:26px;height:26px;min-width:26px;border:1px solid var(--gray);border-radius:6px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;flex-shrink:0;margin-top:1px}
 .chk.on{background:var(--gold);border-color:var(--gold);color:var(--bg)}
 .agree-text{font-size:12px;color:var(--light);line-height:1.6;font-weight:500}
 .agree-text b{color:var(--gold2)}
-
-/* SUMMARY */
 .sum-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;gap:8px}
 .sum-row:last-child{border:none}
 .sum-l{color:var(--gray);font-weight:600;white-space:nowrap}
 .sum-r{font-weight:700;color:var(--white);text-align:right}
-
-/* BUTTONS */
 .sticky-btn{position:fixed;bottom:0;left:0;right:0;padding:14px 16px 20px;background:linear-gradient(to top,var(--bg) 70%,transparent);z-index:50;display:flex;gap:10px}
 .btn{padding:15px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:800;font-family:'Montserrat',sans-serif;letter-spacing:1.5px;text-transform:uppercase;transition:all .2s}
 .btn-gold{flex:2;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg);box-shadow:0 4px 24px rgba(201,160,50,.4)}
 .btn-gold:active{transform:scale(.97)}
 .btn-gold:disabled{opacity:.4;cursor:not-allowed;transform:none}
 .btn-ghost{flex:1;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--gray)}
-
-/* ALERT */
 .alert{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:12px;color:#e74c3c;margin-top:10px;display:none;font-weight:700}
 .alert.show{display:block}
-
-/* SUCCESS */
 .success-screen{text-align:center;padding:60px 24px;position:relative;z-index:1}
 .sicon{font-size:80px;margin-bottom:24px;animation:pop .5s ease}
 @keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
 .success-screen h2{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold2);margin-bottom:14px;letter-spacing:1px}
 .success-screen p{color:var(--gray);font-size:13px;line-height:2}
 .success-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto}
-
-/* SPINNER */
 .spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(0,0,0,.2);border-top-color:var(--bg);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
 @keyframes spin{to{transform:rotate(360deg)}}
-
 .pb90{padding-bottom:90px}
 .screen{display:none;animation:fadeIn .3s ease}.screen.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
@@ -117,7 +89,6 @@ select option{background:var(--card)}
 
 <div class="stars" id="stars"></div>
 
-<!-- HEADER -->
 <div class="header">
   <div class="hlogo">
     <div class="hicon">🏠</div>
@@ -129,7 +100,6 @@ select option{background:var(--card)}
   <div class="hbadge">ЗАЯВКА</div>
 </div>
 
-<!-- PROGRESS -->
 <div class="progress-wrap">
   <div class="progress-title" id="stepLabel">Ваші дані</div>
   <div class="progress">
@@ -141,14 +111,12 @@ select option{background:var(--card)}
   </div>
 </div>
 
-<!-- ══ ЕКРАН 1 ══ -->
 <div class="screen active pb90" id="screen1">
   <div class="section" style="margin-top:16px">
     <div class="stitle">👤 Ваші дані</div>
     <div class="field"><label>ПІБ повністю *</label><input type="text" id="name" placeholder="Іваненко Іван Іванович" autocomplete="name"></div>
     <div class="field"><label>Телефон *</label><input type="tel" id="phone" placeholder="+38 096 000 00 00" maxlength="13"></div>
   </div>
-
   <div class="section">
     <div class="stitle">🗺️ Об'єкт — Винос меж</div>
     <div class="field">
@@ -176,64 +144,51 @@ select option{background:var(--card)}
     </div>
     <div class="field"><label>Коментар</label><textarea id="comment" rows="2" placeholder="Побажання, зручна дата виїзду..."></textarea></div>
   </div>
-
   <div class="alert" id="alert1" style="margin:0 14px 14px">Заповніть усі обов'язкові поля (*)</div>
-
   <div class="sticky-btn">
     <button class="btn btn-gold" style="flex:1" onclick="goStep2()">ДАЛІ → УМОВИ</button>
   </div>
 </div>
 
-<!-- ══ ЕКРАН 2 ══ -->
 <div class="screen pb90" id="screen2">
   <div class="section" style="margin-top:16px">
     <div class="stitle">📋 Умови заявки</div>
-
     <div class="info-box">
       <b>БудЕксперт</b> здійснює пошук та підбір сертифікованих спеціалістів по Київській області. Безпосереднє виконання геодезичних робіт здійснюється сертифікованим підрядником (ФОП), з яким Замовник розраховується окремо на об'єкті.
     </div>
-
     <div class="red-box">
       ⚠️ При скасуванні виїзду менш ніж за <b>24 години</b> — транспортні витрати не компенсуються.<br><br>
       🚗 <b>Транспортні витрати</b> геодезиста не входять у вартість та оплачуються окремо.
     </div>
-
     <div class="gold-box">
       📌 Після погодження ціни для <b>бронювання заявки</b> необхідно сплатити <b>30% від вартості</b> робіт на картку координатора.<br><br>
       Решта суми сплачується виконавцю безпосередньо на об'єкті після виконання робіт.<br><br>
       <b>+38 096 121 09 06 · @vitaliy_bud</b>
     </div>
-
     <div class="agree-box" id="agreeBox" onclick="toggleAgree()">
       <div class="chk" id="chkIcon"></div>
       <div class="agree-text">Я ознайомився(-лась) з умовами та <b>погоджуюся на виїзд геодезиста</b> після узгодження деталей з менеджером</div>
     </div>
-
     <div class="alert" id="alert2">Підтвердіть ознайомлення з умовами ☝️</div>
   </div>
-
   <div class="sticky-btn">
     <button class="btn btn-ghost" onclick="goStep(1)">← НАЗАД</button>
     <button class="btn btn-gold" onclick="goStep3()">ДАЛІ → ПІДСУМОК</button>
   </div>
 </div>
 
-<!-- ══ ЕКРАН 3 ══ -->
 <div class="screen pb90" id="screen3">
   <div class="section" style="margin-top:16px">
     <div class="stitle">✅ Підсумок заявки</div>
     <div id="summaryBox"></div>
   </div>
-
   <div class="alert" id="alert3" style="margin:0 14px 14px"></div>
-
   <div class="sticky-btn">
     <button class="btn btn-ghost" onclick="goStep(2)">← НАЗАД</button>
     <button class="btn btn-gold" id="submitBtn" onclick="submitForm()">📨 НАДІСЛАТИ</button>
   </div>
 </div>
 
-<!-- SUCCESS -->
 <div class="screen" id="screenSuccess">
   <div class="success-screen">
     <div class="sicon">🎉</div>
@@ -252,23 +207,29 @@ select option{background:var(--card)}
 </div>
 
 <script>
-// ЗІРКИ
+// ═══════════════════════════════════════════════
+// 🔒 БЕЗПЕЧНА ВЕРСІЯ — БЕЗ BOT_TOKEN, БЕЗ ADMIN_ID
+// Вся логіка на стороні Apps Script:
+//   - запис в таблицю
+//   - надсилання повідомлення в Telegram
+// ═══════════════════════════════════════════════
+
+const APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbx5MYd3QnHXsBsSx2by2pZlULxwzlz77_VDqsFuLsS5V_4B4aOyTJgnQ3ZrGLD_BAM/exec';
+// ⚠️ Це ЄДИНИЙ URL. Має співпадати з APPS_SCRIPT_URL в Railway.
+
+let agreed = false;
+const stepLabels = ['','ВАШІ ДАНІ','УМОВИ','ВІДПРАВКА'];
+
 (function(){
   const c = document.getElementById('stars');
   for(let i = 0; i < 60; i++){
     const s = document.createElement('div');
     s.className = 'star';
     const sz = Math.random() * 2 + .5;
-    s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:${Math.random()*4}s`;
+    s.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;left:' + (Math.random()*100) + '%;top:' + (Math.random()*100) + '%;--d:' + (2+Math.random()*4) + 's;--delay:' + (Math.random()*4) + 's';
     c.appendChild(s);
   }
 })();
-
-const BOT_TOKEN    = ("BOT_TOKEN не встановлено!");
-const ADMIN_ID     = '8531471694';
-const APPS_SCRIPT  = 'https://script.google.com/macros/s/AKfycbx5MYd3QnHXsBsSx2by2pZlULxwzlz77_VDqsFuLsS5V_4B4aOyTJgnQ3ZrGLD_BAM/exec'; // той самий URL що в Railway
-let agreed = false;
-const stepLabels = ['','ВАШІ ДАНІ','УМОВИ','ВІДПРАВКА'];
 
 function goStep(n){
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -340,8 +301,8 @@ function renderSummary(){
     ['💰 Вартість послуги', 'за домовленістю'],
     ['🚗 Транспортні витрати', 'після узгодження'],
   ];
-  document.getElementById('summaryBox').innerHTML = rows.map(([l, val]) =>
-    `<div class="sum-row"><span class="sum-l">${l}</span><span class="sum-r">${val}</span></div>`
+  document.getElementById('summaryBox').innerHTML = rows.map(r =>
+    '<div class="sum-row"><span class="sum-l">' + r[0] + '</span><span class="sum-r">' + r[1] + '</span></div>'
   ).join('');
 }
 
@@ -350,59 +311,42 @@ async function submitForm(){
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> НАДСИЛАЄМО...';
 
-  const now      = new Date().toLocaleString('uk-UA');
-  const parcels  = v('parcels') + (v('area') ? ', ' + v('area') + ' га' : '');
-  const comment  = v('comment') || '—';
-  const kn       = getKN();
+  const parcels = v('parcels') + (v('area') ? ', ' + v('area') + ' га' : '');
+  const comment = v('comment') || '—';
+  const kn      = getKN();
 
-  // 1️⃣ Зберігаємо в Google Sheets
-  let orderNum = 'ZAY-????';
+  // 🔒 Шлемо ВСЕ ТІЛЬКИ в Apps Script.
+  // Apps Script: 1) збереже в таблицю, 2) надішле повідомлення адміну
   try {
-    const sheetsRes = await fetch(APPS_SCRIPT, {
+    const res = await fetch(APPS_SCRIPT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        action:    'add_order',
-        tg_id:     0,
+        action:    'add_order_html',
+        source:    'html_form',
         name:      v('name'),
         phone:     v('phone'),
         service:   '📐 Винос меж ділянки',
         cadastral: kn,
         city:      v('address'),
-        district:  '',
+        address:   v('address'),
         parcels:   parcels,
-        comment:   comment,
+        area:      v('area') || '',
+        comment:   comment
       })
     });
-    const sheetsData = await sheetsRes.json();
-    if (sheetsData.order_id) orderNum = sheetsData.order_id;
-  } catch(e) {
-    console.warn('Sheets error:', e);
-  }
 
-  // 2️⃣ Надсилаємо повідомлення адміну в Telegram
-  const msg =
-    `📋 *НОВА ЗАЯВКА ${orderNum} — Винос меж*\n\n` +
-    `👤 *Замовник:* ${v('name')}\n` +
-    `📞 *Телефон:* ${v('phone')}\n` +
-    `\n🗂 *КН:* \`${kn}\`\n` +
-    `📍 *Адреса:* ${v('address')}\n` +
-    `📦 *Ділянок:* ${parcels}\n` +
-    `💬 *Коментар:* ${comment}\n` +
-    `\n💰 *Вартість:* за домовленістю\n` +
-    `🚗 *Транспорт:* після узгодження\n` +
-    `\n📅 *Підписано:* ${now}`;
+    const data = await res.json();
 
-  try {
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ chat_id: ADMIN_ID, text: msg, parse_mode: 'Markdown' })
-    });
-    document.getElementById('orderNum').textContent = orderNum;
-    goStep('success');
+    if (data.status === 'ok' && data.order_id) {
+      document.getElementById('orderNum').textContent = data.order_id;
+      goStep('success');
+    } else {
+      throw new Error(data.message || 'Невідома помилка');
+    }
   } catch(e) {
-    showAlert('alert3', '⚠️ Помилка надсилання. Перевірте інтернет.');
+    console.error('Помилка:', e);
+    showAlert('alert3', '⚠️ Помилка надсилання. Спробуйте ще раз або зателефонуйте: 096 121 09 06');
     btn.disabled = false;
     btn.innerHTML = '📨 НАДІСЛАТИ';
   }
@@ -410,13 +354,12 @@ async function submitForm(){
 
 function getKN(){
   const a=v('kn1'), b=v('kn2'), c=v('kn3'), d=v('kn4');
-  return a ? `${a}:${b}:${c}:${d}` : '—';
+  return a ? a + ':' + b + ':' + c + ':' + d : '—';
 }
-function v(id){ return document.getElementById(id)?.value.trim() || ''; }
+function v(id){ return document.getElementById(id) ? document.getElementById(id).value.trim() : ''; }
 function showAlert(id, msg){ const el=document.getElementById(id); if(msg) el.textContent=msg; el.classList.add('show'); el.scrollIntoView({behavior:'smooth',block:'nearest'}); }
 function hideAlert(id){ document.getElementById(id).classList.remove('show'); }
 
-// Автоперехід між полями КН
 const knLens = [10,2,3,4];
 ['kn1','kn2','kn3','kn4'].forEach((id,i) => {
   document.getElementById(id).addEventListener('input', function(){
@@ -426,7 +369,6 @@ const knLens = [10,2,3,4];
   });
 });
 
-// Форматування телефону
 document.getElementById('phone').addEventListener('input', function(){
   let val = this.value.replace(/\D/g,'');
   if(val.startsWith('380')) val = '+' + val;
