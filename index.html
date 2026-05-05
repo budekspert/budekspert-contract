@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>БудЕксперт — Заявка на винос меж</title>
+<title>БудЕксперт — Інженерна мережа</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -39,45 +39,33 @@ label{display:block;font-size:9px;color:var(--light);font-weight:700;letter-spac
 input,select,textarea{width:100%;padding:13px 16px;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:var(--white);font-size:15px;font-family:'Montserrat',sans-serif;outline:none;transition:all .2s;-webkit-appearance:none}
 input:focus,select:focus,textarea:focus{border-color:var(--gold);background:rgba(201,160,50,.05);box-shadow:0 0 0 3px rgba(201,160,50,.08)}
 input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2);font-size:13px}
-select option{background:var(--card)}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .kn-labels{display:grid;grid-template-columns:2.2fr 1fr 1.2fr 1.2fr;gap:6px;margin-bottom:5px}
 .kn-labels span{font-size:8px;color:var(--gray);text-align:center;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
 .kn-grid{display:grid;grid-template-columns:2.2fr 1fr 1.2fr 1.2fr;gap:6px}
 .kn-grid input{text-align:center;font-size:13px;padding:12px 4px;letter-spacing:.5px}
-.kn-hint{font-size:9px;color:var(--gray);margin-top:6px;letter-spacing:.5px}
 .gold-box{background:rgba(201,160,50,.06);border:1px solid rgba(201,160,50,.2);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--light);margin-bottom:16px;line-height:1.7;position:relative;overflow:hidden}
 .gold-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold2))}
-.gold-box b{color:var(--gold2)}
 .red-box{background:rgba(192,57,43,.07);border:1px solid rgba(192,57,43,.25);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--light);margin-bottom:16px;line-height:1.7;position:relative;overflow:hidden}
 .red-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--danger)}
-.red-box b{color:#e74c3c}
 .info-box{background:rgba(255,255,255,.03);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--gray);line-height:1.8;border:1px solid rgba(255,255,255,.06);margin-bottom:16px}
-.info-box b{color:var(--light)}
 .agree-box{display:flex;align-items:flex-start;gap:14px;background:rgba(201,160,50,.05);border-radius:10px;padding:16px;border:1px solid rgba(201,160,50,.15);cursor:pointer;margin-bottom:16px;transition:all .2s}
 .agree-box.on{border-color:var(--gold);background:rgba(201,160,50,.09)}
 .chk{width:26px;height:26px;min-width:26px;border:1px solid var(--gray);border-radius:6px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;flex-shrink:0;margin-top:1px}
 .chk.on{background:var(--gold);border-color:var(--gold);color:var(--bg)}
 .agree-text{font-size:12px;color:var(--light);line-height:1.6;font-weight:500}
-.agree-text b{color:var(--gold2)}
 .sum-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;gap:8px}
-.sum-row:last-child{border:none}
 .sum-l{color:var(--gray);font-weight:600;white-space:nowrap}
 .sum-r{font-weight:700;color:var(--white);text-align:right}
 .sticky-btn{position:fixed;bottom:0;left:0;right:0;padding:14px 16px 20px;background:linear-gradient(to top,var(--bg) 70%,transparent);z-index:50;display:flex;gap:10px}
 .btn{padding:15px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:800;font-family:'Montserrat',sans-serif;letter-spacing:1.5px;text-transform:uppercase;transition:all .2s}
 .btn-gold{flex:2;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg);box-shadow:0 4px 24px rgba(201,160,50,.4)}
-.btn-gold:active{transform:scale(.97)}
-.btn-gold:disabled{opacity:.4;cursor:not-allowed;transform:none}
 .btn-ghost{flex:1;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--gray)}
-.alert{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:12px;color:#e74c3c;margin-top:10px;display:none;font-weight:700}
+.alert{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:12px;color:#e74c3c;margin:10px 14px;display:none;font-weight:700}
 .alert.show{display:block}
 .success-screen{text-align:center;padding:60px 24px;position:relative;z-index:1}
 .sicon{font-size:80px;margin-bottom:24px;animation:pop .5s ease}
-@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
-.success-screen h2{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold2);margin-bottom:14px;letter-spacing:1px}
-.success-screen p{color:var(--gray);font-size:13px;line-height:2}
-.success-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.success-screen h2{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold2);margin-bottom:14px}
 .spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(0,0,0,.2);border-top-color:var(--bg);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
 @keyframes spin{to{transform:rotate(360deg)}}
 .pb90{padding-bottom:90px}
@@ -86,9 +74,7 @@ select option{background:var(--card)}
 </style>
 </head>
 <body>
-
 <div class="stars" id="stars"></div>
-
 <div class="header">
   <div class="hlogo">
     <div class="hicon">🏠</div>
@@ -114,62 +100,52 @@ select option{background:var(--card)}
 <div class="screen active pb90" id="screen1">
   <div class="section" style="margin-top:16px">
     <div class="stitle">👤 Ваші дані</div>
-    <div class="field"><label>ПІБ повністю *</label><input type="text" id="name" placeholder="Іваненко Іван Іванович" autocomplete="name"></div>
+    <div class="field"><label>ПІБ повністю *</label><input type="text" id="name" placeholder="Іваненко Іван Іванович"></div>
     <div class="field"><label>Телефон *</label><input type="tel" id="phone" placeholder="+38 096 000 00 00" maxlength="13"></div>
   </div>
   <div class="section">
     <div class="stitle">🗺️ Об'єкт — Винос меж</div>
     <div class="field">
       <label>Кадастровий номер *</label>
-      <div class="kn-labels"><span>КОАТУУ (10)</span><span>зона</span><span>квартал</span><span>ділянка</span></div>
+      <div class="kn-labels"><span>КОАТУУ</span><span>зона</span><span>квартал</span><span>ділянка</span></div>
       <div class="kn-grid">
-        <input type="text" id="kn1" placeholder="3222487400" maxlength="10" inputmode="numeric">
-        <input type="text" id="kn2" placeholder="04" maxlength="2" inputmode="numeric">
-        <input type="text" id="kn3" placeholder="001" maxlength="3" inputmode="numeric">
-        <input type="text" id="kn4" placeholder="0022" maxlength="4" inputmode="numeric">
+        <input type="text" id="kn1" placeholder="32224..." maxlength="10" inputmode="numeric">
+        <input type="text" id="kn2" placeholder="00" maxlength="2" inputmode="numeric">
+        <input type="text" id="kn3" placeholder="000" maxlength="3" inputmode="numeric">
+        <input type="text" id="kn4" placeholder="0000" maxlength="4" inputmode="numeric">
       </div>
-      <div class="kn-hint">Приклад: 3222487400 : 04 : 001 : 0022</div>
     </div>
-    <div class="field"><label>Адреса / населений пункт *</label><input type="text" id="address" placeholder="с. Назва, Фастівський р-н"></div>
-    <div class="row2">
+    <div class="field"><label>Адреса / населений пункт *</label><input type="text" id="address" placeholder="с. Назва, район"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
       <div class="field"><label>К-сть ділянок *</label>
-        <select id="parcels">
-          <option value="1">1 ділянка</option>
-          <option value="2">2 ділянки</option>
-          <option value="3">3 ділянки</option>
-          <option value="4+">4+</option>
-        </select>
+        <select id="parcels"><option value="1">1 ділянка</option><option value="2">2 ділянки</option><option value="3">3+</option></select>
       </div>
       <div class="field"><label>Площа (га)</label><input type="text" id="area" placeholder="0.25" inputmode="decimal"></div>
     </div>
-    <div class="field"><label>Коментар</label><textarea id="comment" rows="2" placeholder="Побажання, зручна дата виїзду..."></textarea></div>
+    <div class="field"><label>Коментар</label><textarea id="comment" rows="2" placeholder="Зручна дата виїзду..."></textarea></div>
   </div>
-  <div class="alert" id="alert1" style="margin:0 14px 14px">Заповніть усі обов'язкові поля (*)</div>
-  <div class="sticky-btn">
-    <button class="btn btn-gold" style="flex:1" onclick="goStep2()">ДАЛІ → УМОВИ</button>
-  </div>
+  <div class="alert" id="alert1">Заповніть обов'язкові поля (*)</div>
+  <div class="sticky-btn"><button class="btn btn-gold" style="flex:1" onclick="goStep2()">ДАЛІ → УМОВИ</button></div>
 </div>
 
 <div class="screen pb90" id="screen2">
   <div class="section" style="margin-top:16px">
-    <div class="stitle">📋 Умови заявки</div>
+    <div class="stitle">📋 Стандарти сервісу</div>
     <div class="info-box">
-      <b>БудЕксперт</b> здійснює пошук та підбір сертифікованих спеціалістів по Київській області. Безпосереднє виконання геодезичних робіт здійснюється сертифікованим підрядником (ФОП), з яким Замовник розраховується окремо на об'єкті.
-    </div>
-    <div class="red-box">
-      ⚠️ При скасуванні виїзду менш ніж за <b>24 години</b> — транспортні витрати не компенсуються.<br><br>
-      🚗 <b>Транспортні витрати</b> геодезиста не входять у вартість та оплачуються окремо.
+      <b>BudEkspert</b> — це єдина мережа сертифікованих інженерів-геодезистів. Ми забезпечуємо автоматизацію виїзду фахівця, який знаходиться <b>найближче до вашого об'єкта</b>, що гарантує оперативність та ринкову вартість.
     </div>
     <div class="gold-box">
-      📌 Після погодження ціни для <b>бронювання заявки</b> необхідно сплатити <b>30% від вартості</b> робіт на картку координатора.<br><br>
-      Решта суми сплачується виконавцю безпосередньо на об'єкті після виконання робіт.<br><br>
-      <b>+38 096 121 09 06 · @vitaliy_bud</b>
+      📌 <b>Гарантія точності:</b> Усі роботи виконуються фахівцями з діючими сертифікатами та високоточним обладнанням (RTK-GNSS).<br><br>
+      💳 <b>Прозорий розрахунок:</b> Ви отримуєте пряму ціну без прихованих комісій. Оплата за польові роботи здійснюється безпосередньо інженеру за фактом виконання.
+    </div>
+    <div class="red-box">
+      ⚠️ <b>Бронювання виїзду:</b> Для фіксації дати у графіку інженера та підтвердження намірів замовника, після узгодження деталей вноситься гарантійний депозит (30%). Решта — на об'єкті.
     </div>
     <div class="agree-box" id="agreeBox" onclick="toggleAgree()">
       <div class="chk" id="chkIcon"></div>
-      <div class="agree-text">Я ознайомився(-лась) з умовами та <b>погоджуюся на виїзд геодезиста</b> після узгодження деталей з менеджером</div>
+      <div class="agree-text">Я ознайомився(-лась) з <b>регламентом виїзду інженера</b> та підтверджую актуальність заявки</div>
     </div>
-    <div class="alert" id="alert2">Підтвердіть ознайомлення з умовами ☝️</div>
+    <div class="alert" id="alert2">Будь ласка, підтвердіть згоду ☝️</div>
   </div>
   <div class="sticky-btn">
     <button class="btn btn-ghost" onclick="goStep(1)">← НАЗАД</button>
@@ -182,7 +158,7 @@ select option{background:var(--card)}
     <div class="stitle">✅ Підсумок заявки</div>
     <div id="summaryBox"></div>
   </div>
-  <div class="alert" id="alert3" style="margin:0 14px 14px"></div>
+  <div class="alert" id="alert3"></div>
   <div class="sticky-btn">
     <button class="btn btn-ghost" onclick="goStep(2)">← НАЗАД</button>
     <button class="btn btn-gold" id="submitBtn" onclick="submitForm()">📨 НАДІСЛАТИ</button>
@@ -193,116 +169,91 @@ select option{background:var(--card)}
   <div class="success-screen">
     <div class="sicon">🎉</div>
     <h2>Заявку прийнято!</h2>
-    <div class="success-divider"></div>
-    <p>Дякуємо за звернення до БудЕксперт.<br>
-    Менеджер зв'яжеться з вами найближчим часом<br>
-    для узгодження вартості та дати виїзду.<br><br>
-    <strong style="color:var(--gold2);font-size:18px;letter-spacing:1px">+38 096 121 09 06</strong><br>
-    <span style="color:var(--gray);letter-spacing:.5px">Telegram: @vitaliy_bud</span><br><br>
-    <div style="margin-top:10px;padding:10px 16px;background:rgba(201,160,50,.1);border-radius:8px;border:1px solid rgba(201,160,50,.3)">
-      <span style="font-size:11px;color:var(--gray);letter-spacing:1px">НОМЕР ЗАЯВКИ: </span>
-      <span id="orderNum" style="color:var(--gold2);font-weight:800;letter-spacing:2px"></span>
+    <p>Менеджер зв'яжеться з вами для узгодження дати.<br><br>
+    <strong style="color:var(--gold2);font-size:18px">096 121 09 06</strong><br>
+    <div style="margin-top:10px;padding:10px;background:rgba(201,160,50,.1);border-radius:8px">
+      ID ЗАЯВКИ: <span id="orderNum" style="color:var(--gold2);font-weight:800"></span>
     </div></p>
   </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════
-// 🔒 БЕЗПЕЧНА ВЕРСІЯ — БЕЗ BOT_TOKEN, БЕЗ ADMIN_ID
-// Вся логіка на стороні Apps Script:
-//   - запис в таблицю
-//   - надсилання повідомлення в Telegram
-// ═══════════════════════════════════════════════
-
 const APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbx5MYd3QnHXsBsSx2by2pZlULxwzlz77_VDqsFuLsS5V_4B4aOyTJgnQ3ZrGLD_BAM/exec';
-// ⚠️ Це ЄДИНИЙ URL. Має співпадати з APPS_SCRIPT_URL в Railway.
-
 let agreed = false;
-const stepLabels = ['','ВАШІ ДАНІ','УМОВИ','ВІДПРАВКА'];
+const stepLabels = ['','ВАШІ ДАНІ','УМОВИ','ПІДСУМОК'];
 
-(function(){
+const regions = {"32224":"Києво-Святошинський","32208":"Бориспільський","32210":"Броварський","32212":"Васильківський","32214":"Вишгородський","32218":"Обухівський"};
+
+window.onload = function() {
   const c = document.getElementById('stars');
-  for(let i = 0; i < 60; i++){
+  for(let i=0; i<60; i++){
     const s = document.createElement('div');
     s.className = 'star';
-    const sz = Math.random() * 2 + .5;
-    s.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;left:' + (Math.random()*100) + '%;top:' + (Math.random()*100) + '%;--d:' + (2+Math.random()*4) + 's;--delay:' + (Math.random()*4) + 's';
+    const sz = Math.random()*2+.5;
+    s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:${Math.random()*4}s`;
     c.appendChild(s);
   }
-})();
+  const urlParams = new URLSearchParams(window.location.search);
+  const city = urlParams.get('utm_city'); 
+  if (city) {
+    document.querySelector('.hname').innerText = "БудЕксперт " + city;
+  }
+};
+
+document.getElementById('kn1').addEventListener('input', function() {
+  const code = this.value.substring(0, 5);
+  if (regions[code] && document.getElementById('address').value === "") {
+    document.getElementById('address').value = regions[code] + " р-н, ";
+  }
+});
 
 function goStep(n){
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(n === 'success' ? 'screenSuccess' : 'screen' + n).classList.add('active');
   if(n !== 'success') updateProgress(n);
-  else document.querySelector('.progress-wrap').style.display = 'none';
   window.scrollTo(0, 0);
 }
 
 function updateProgress(n){
-  for(let i = 1; i <= 3; i++){
+  for(let i=1; i<=3; i++){
     const d = document.getElementById('dot' + i);
     d.classList.remove('active','done');
-    if(i < n){ d.classList.add('done'); d.textContent = '✓'; }
-    else if(i === n){ d.classList.add('active'); d.textContent = i; }
-    else d.textContent = i;
-    if(i < 3) document.getElementById('line' + i).classList.toggle('done', i < n);
+    if(i<n){ d.classList.add('done'); d.textContent = '✓'; }
+    else if(i===n){ d.classList.add('active'); d.textContent = i; }
+    if(i<3) document.getElementById('line'+i).classList.toggle('done', i<n);
   }
   document.getElementById('stepLabel').textContent = stepLabels[n];
 }
 
-function validateKN(){
-  const k1 = v('kn1');
-  if(k1.length !== 10){ hl('kn1'); return false; }
-  if(!v('kn2')){ hl('kn2'); return false; }
-  if(!v('kn3')){ hl('kn3'); return false; }
-  if(!v('kn4')){ hl('kn4'); return false; }
-  return true;
-}
-
-function hl(id){
-  const el = document.getElementById(id);
-  el.style.borderColor = 'var(--danger)';
-  setTimeout(() => el.style.borderColor = '', 2000);
-  el.focus();
-}
-
 function goStep2(){
-  if(!v('name') || !v('phone') || !v('address')){ showAlert('alert1','Заповніть обов\'язкові поля (*)'); return; }
-  if(!v('kn1')){ showAlert('alert1','Введіть кадастровий номер'); return; }
-  if(!validateKN()){ showAlert('alert1','Перевірте кадастровий номер'); return; }
-  hideAlert('alert1');
-  goStep(2);
+  if(!v('name') || !v('phone') || !v('address') || v('kn1').length < 10){ showAlert('alert1'); return; }
+  hideAlert('alert1'); goStep(2);
 }
 
 function toggleAgree(){
   agreed = !agreed;
   document.getElementById('agreeBox').classList.toggle('on', agreed);
-  const c = document.getElementById('chkIcon');
-  c.classList.toggle('on', agreed);
-  c.textContent = agreed ? '✓' : '';
-  if(agreed) hideAlert('alert2');
+  document.getElementById('chkIcon').classList.toggle('on', agreed);
+  document.getElementById('chkIcon').textContent = agreed ? '✓' : '';
 }
 
 function goStep3(){
   if(!agreed){ showAlert('alert2'); return; }
-  hideAlert('alert2');
-  renderSummary();
-  goStep(3);
+  renderSummary(); goStep(3);
 }
 
 function renderSummary(){
   const rows = [
+    ['📄 Тип робіт', 'Винос меж (відновлення)'],
     ['👤 Замовник', v('name')],
-    ['📞 Телефон', v('phone')],
-    ['🗂 Кадастровий №', getKN()],
-    ['📍 Адреса', v('address')],
-    ['📦 Ділянок', v('parcels') + (v('area') ? ', ' + v('area') + ' га' : '')],
-    ['💰 Вартість послуги', 'за домовленістю'],
-    ['🚗 Транспортні витрати', 'після узгодження'],
+    ['📞 Тел.', v('phone')],
+    ['📍 Локація', v('address')],
+    ['🗂 Кадастр', v('kn1')+':'+v('kn2')+':'+v('kn3')+':'+v('kn4')],
+    ['📏 Обсяг', v('parcels') + ' діл. (' + (v('area') || '—') + ' га)'],
+    ['🏛 Статус інженера', 'Сертифікований'],
   ];
   document.getElementById('summaryBox').innerHTML = rows.map(r =>
-    '<div class="sum-row"><span class="sum-l">' + r[0] + '</span><span class="sum-r">' + r[1] + '</span></div>'
+    `<div class="sum-row"><span class="sum-l">${r[0]}</span><span class="sum-r">${r[1]}</span></div>`
   ).join('');
 }
 
@@ -310,69 +261,45 @@ async function submitForm(){
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> НАДСИЛАЄМО...';
-
-  const parcels = v('parcels') + (v('area') ? ', ' + v('area') + ' га' : '');
-  const comment = v('comment') || '—';
-  const kn      = getKN();
-
-  // 🔒 Шлемо ВСЕ ТІЛЬКИ в Apps Script.
-  // Apps Script: 1) збереже в таблицю, 2) надішле повідомлення адміну
   try {
     const res = await fetch(APPS_SCRIPT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        action:    'add_order_html',
-        source:    'html_form',
-        name:      v('name'),
-        phone:     v('phone'),
-        service:   '📐 Винос меж ділянки',
-        cadastral: kn,
-        city:      v('address'),
-        address:   v('address'),
-        parcels:   parcels,
-        area:      v('area') || '',
-        comment:   comment
+        action: 'add_order_html',
+        name: v('name'),
+        phone: v('phone'),
+        cadastral: v('kn1')+':'+v('kn2')+':'+v('kn3')+':'+v('kn4'),
+        address: v('address'),
+        area: v('area'),
+        parcels: v('parcels'),
+        comment: v('comment')
       })
     });
-
     const data = await res.json();
-
-    if (data.status === 'ok' && data.order_id) {
+    if (data.status === 'ok') {
       document.getElementById('orderNum').textContent = data.order_id;
       goStep('success');
-    } else {
-      throw new Error(data.message || 'Невідома помилка');
-    }
+    } else throw new Error();
   } catch(e) {
-    console.error('Помилка:', e);
-    showAlert('alert3', '⚠️ Помилка надсилання. Спробуйте ще раз або зателефонуйте: 096 121 09 06');
-    btn.disabled = false;
-    btn.innerHTML = '📨 НАДІСЛАТИ';
+    showAlert('alert3', '⚠️ Помилка. Тел: 096 121 09 06');
+    btn.disabled = false; btn.innerHTML = '📨 НАДІСЛАТИ';
   }
 }
 
-function getKN(){
-  const a=v('kn1'), b=v('kn2'), c=v('kn3'), d=v('kn4');
-  return a ? a + ':' + b + ':' + c + ':' + d : '—';
-}
-function v(id){ return document.getElementById(id) ? document.getElementById(id).value.trim() : ''; }
-function showAlert(id, msg){ const el=document.getElementById(id); if(msg) el.textContent=msg; el.classList.add('show'); el.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+function v(id){ return document.getElementById(id).value.trim(); }
+function showAlert(id, msg){ if(msg) document.getElementById(id).textContent=msg; document.getElementById(id).classList.add('show'); }
 function hideAlert(id){ document.getElementById(id).classList.remove('show'); }
 
-const knLens = [10,2,3,4];
 ['kn1','kn2','kn3','kn4'].forEach((id,i) => {
   document.getElementById(id).addEventListener('input', function(){
     this.value = this.value.replace(/\D/g,'');
-    if(this.value.length >= knLens[i] && i < 3)
-      document.getElementById(['kn2','kn3','kn4'][i]).focus();
+    if(this.value.length >= [10,2,3,4][i] && i<3) document.getElementById(['kn2','kn3','kn4'][i]).focus();
   });
 });
 
 document.getElementById('phone').addEventListener('input', function(){
   let val = this.value.replace(/\D/g,'');
-  if(val.startsWith('380')) val = '+' + val;
-  else if(val.startsWith('0')) val = '+38' + val;
+  if(val.startsWith('0')) val = '+38' + val;
   this.value = val;
 });
 </script>
