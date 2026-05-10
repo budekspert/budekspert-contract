@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>БудЕксперт — Заявка на винос меж</title>
-<link href="https://script.google.com/macros/s/AKfycby1R1yA8WeSKXHED2a2BpSzwAP2Ve8x4AJ3jD8NSUwnMCUn_fuOc4PNAUf55hKPODhL/exec">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
@@ -276,7 +276,7 @@ select option{background:var(--card)}
 // НАЛАШТУВАННЯ — тільки URL скрипта!
 // Токен та ADMIN_ID захищені в Apps Script
 // ══════════════════════════════════════════════
-const APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbxpjud7vNXYieIzS5bfadPXWI7fzRAE_m6kHaUIcGALVc6rCFNepitpGB4La1THOkWU/exec';
+const APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycby1R1yA8WeSKXHED2a2BpSzwAP2Ve8x4AJ3jD8NSUwnMCUn_fuOc4PNAUf55hKPODhL/exec';
 
 // ЗІРКИ
 (function(){
@@ -364,13 +364,13 @@ function goStep3(){
 
 function renderSummary(){
   const rows = [
-    ['👤 Замовник',          v('name')],
-    ['📞 Телефон',           v('phone')],
-    ['🗂 Кадастровий №',     getKN()],
-    ['📍 Адреса',            v('address')],
-    ['📦 Ділянок',           v('parcels') + (v('area') ? ', ' + v('area') + ' га' : '')],
-    ['💬 Коментар',          v('comment') || '—'],
-    ['💰 Вартість послуги',  'за домовленістю'],
+    ['👤 Замовник',           v('name')],
+    ['📞 Телефон',            v('phone')],
+    ['🗂 Кадастровий №',      getKN()],
+    ['📍 Адреса',             v('address')],
+    ['📦 Ділянок',            v('parcels') + (v('area') ? ', ' + v('area') + ' га' : '')],
+    ['💬 Коментар',           v('comment') || '—'],
+    ['💰 Вартість послуги',   'за домовленістю'],
     ['🚗 Транспортні витрати','після узгодження'],
   ];
   document.getElementById('summaryBox').innerHTML = rows.map(([l, val]) =>
@@ -380,7 +380,7 @@ function renderSummary(){
 
 // ══════════════════════════════════════════════
 // ВІДПРАВКА — тільки через Apps Script!
-// Apps Script сам зберігає в таблицю
+// Apps Script зберігає в таблицю
 // і надсилає повідомлення адміну в Telegram
 // ══════════════════════════════════════════════
 async function submitForm(){
@@ -456,9 +456,9 @@ const knLens = [10, 2, 3, 4];
 // ── Форматування телефону ──
 document.getElementById('phone').addEventListener('input', function(){
   let val = this.value.replace(/\D/g,'');
-  if(val.startsWith('380'))      val = '+' + val;
-  else if(val.startsWith('80'))  val = '+3' + val;
-  else if(val.startsWith('0'))   val = '+38' + val;
+  if(val.startsWith('380'))     val = '+' + val;
+  else if(val.startsWith('80')) val = '+3' + val;
+  else if(val.startsWith('0'))  val = '+38' + val;
   if(val.length > 13) val = val.slice(0, 13);
   this.value = val;
 });
