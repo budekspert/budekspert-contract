@@ -3,465 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>БудЕксперт — Заявка на винос меж</title>
+<title>Приєднатися до команди — БудЕксперт</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* ОСНОВНІ СТИЛІ (Уніфіковано з головною) */
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
   --bg:#0a0a0a;--bg2:#111111;--card:#141414;--card2:#1a1a1a;
   --border:rgba(201,160,50,.2);--gold:#c9a032;--gold2:#e8c96a;
   --gold3:#f5e090;--white:#f0ead6;--gray:#6b6b6b;--light:#a09070;
-  --danger:#c0392b;--r:12px;
+  --danger:#c0392b;--success:#27ae60;--r:12px;
 }
 html,body{min-height:100%;background:var(--bg);font-family:'Montserrat',sans-serif;color:var(--white);overflow-x:hidden}
 
-/* STARS */
 .stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
 .star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--d,3s) infinite var(--delay,0s)}
 @keyframes twinkle{0%,100%{opacity:.1;transform:scale(1)}50%{opacity:.8;transform:scale(1.3)}}
 
-/* HEADER */
 .header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.95);backdrop-filter:blur(12px);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
 .hlogo{display:flex;align-items:center;gap:10px}
 .hicon{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 0 20px rgba(201,160,50,.3)}
 .hname{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;color:var(--gold2);letter-spacing:1px}
-.hphone{font-size:10px;color:var(--gray);margin-top:1px;letter-spacing:.5px}
 .hbadge{border:1px solid var(--gold);color:var(--gold);padding:6px 14px;border-radius:6px;font-size:10px;font-weight:800;letter-spacing:2px}
 
-/* PROGRESS */
-.progress-wrap{padding:20px 20px 0;position:relative;z-index:1}
-.progress-title{font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;text-align:center;margin-bottom:12px}
-.progress{display:flex;align-items:center;gap:0}
-.dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:1px solid var(--gray);color:var(--gray);transition:all .4s;flex-shrink:0}
-.dot.active{border-color:var(--gold);color:var(--gold);box-shadow:0 0 16px rgba(201,160,50,.3)}
-.dot.done{border-color:var(--gold);background:var(--gold);color:var(--bg);box-shadow:0 0 12px rgba(201,160,50,.4)}
-.pline{flex:1;height:1px;background:var(--gray);transition:background .4s}
-.pline.done{background:var(--gold)}
+.section{position:relative;z-index:1;margin:14px;padding:22px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold2);letter-spacing:1px;margin-bottom:18px;text-align:center}
 
-/* SECTION */
-.section{position:relative;z-index:1;margin:0 14px 14px;padding:22px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
-.section::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.stitle{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--gold2);letter-spacing:1px;margin-bottom:18px;display:flex;align-items:center;gap:8px}
-
-/* FIELDS */
+/* ФОРМА */
 .field{margin-bottom:16px}
 label{display:block;font-size:9px;color:var(--light);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:7px}
-input,select,textarea{width:100%;padding:13px 16px;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:var(--white);font-size:15px;font-family:'Montserrat',sans-serif;outline:none;transition:all .2s;-webkit-appearance:none}
-input:focus,select:focus,textarea:focus{border-color:var(--gold);background:rgba(201,160,50,.05);box-shadow:0 0 0 3px rgba(201,160,50,.08)}
-input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2);font-size:13px}
-select option{background:var(--card)}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input,select,textarea{width:100%;padding:13px 16px;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:var(--white);font-size:15px;outline:none;transition:all .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);background:rgba(201,160,50,.05)}
 
-/* KN */
-.kn-labels{display:grid;grid-template-columns:2.2fr 1fr 1.2fr 1.2fr;gap:6px;margin-bottom:5px}
-.kn-labels span{font-size:8px;color:var(--gray);text-align:center;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
-.kn-grid{display:grid;grid-template-columns:2.2fr 1fr 1.2fr 1.2fr;gap:6px}
-.kn-grid input{text-align:center;font-size:13px;padding:12px 4px;letter-spacing:.5px}
-.kn-hint{font-size:9px;color:var(--gray);margin-top:6px;letter-spacing:.5px}
+/* УМОВИ */
+.info-box{background:rgba(255,255,255,.03);border-radius:10px;padding:16px;font-size:13px;color:var(--light);line-height:1.6;border:1px solid var(--border);margin-bottom:16px}
+.info-box b{color:var(--gold2)}
+.list-item{display:flex;gap:10px;margin-bottom:10px;font-size:12px}
+.list-dot{color:var(--gold);font-weight:bold}
 
-/* BOXES */
-.gold-box{background:rgba(201,160,50,.06);border:1px solid rgba(201,160,50,.2);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--light);margin-bottom:16px;line-height:1.7;position:relative;overflow:hidden}
-.gold-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold2))}
-.gold-box b{color:var(--gold2)}
-.red-box{background:rgba(192,57,43,.07);border:1px solid rgba(192,57,43,.25);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--light);margin-bottom:16px;line-height:1.7;position:relative;overflow:hidden}
-.red-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--danger)}
-.red-box b{color:#e74c3c}
-.info-box{background:rgba(255,255,255,.03);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--gray);line-height:1.8;border:1px solid rgba(255,255,255,.06);margin-bottom:16px}
-.info-box b{color:var(--light)}
+.btn{width:100%;padding:16px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;transition:all .2s;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg);box-shadow:0 4px 24px rgba(201,160,50,.4)}
+.btn:disabled{opacity:0.5;filter:grayscale(1)}
 
-/* AGREE */
-.agree-box{display:flex;align-items:flex-start;gap:14px;background:rgba(201,160,50,.05);border-radius:10px;padding:16px;border:1px solid rgba(201,160,50,.15);cursor:pointer;margin-bottom:16px;transition:all .2s}
-.agree-box.on{border-color:var(--gold);background:rgba(201,160,50,.09)}
-.chk{width:26px;height:26px;min-width:26px;border:1px solid var(--gray);border-radius:6px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;flex-shrink:0;margin-top:1px}
-.chk.on{background:var(--gold);border-color:var(--gold);color:var(--bg)}
-.agree-text{font-size:12px;color:var(--light);line-height:1.6;font-weight:500}
-.agree-text b{color:var(--gold2)}
+.success-screen{display:none;text-align:center;padding:60px 20px}
+.success-screen.active{display:block}
+.s-icon{font-size:60px;margin-bottom:20px}
 
-/* SUMMARY */
-.sum-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;gap:8px}
-.sum-row:last-child{border:none}
-.sum-l{color:var(--gray);font-weight:600;white-space:nowrap}
-.sum-r{font-weight:700;color:var(--white);text-align:right}
-
-/* BUTTONS */
-.sticky-btn{position:fixed;bottom:0;left:0;right:0;padding:14px 16px 20px;background:linear-gradient(to top,var(--bg) 70%,transparent);z-index:50;display:flex;gap:10px}
-.btn{padding:15px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:800;font-family:'Montserrat',sans-serif;letter-spacing:1.5px;text-transform:uppercase;transition:all .2s}
-.btn-gold{flex:2;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg);box-shadow:0 4px 24px rgba(201,160,50,.4)}
-.btn-gold:active{transform:scale(.97)}
-.btn-gold:disabled{opacity:.4;cursor:not-allowed;transform:none}
-.btn-ghost{flex:1;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--gray)}
-
-/* ALERT */
-.alert{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:12px;color:#e74c3c;margin-top:10px;display:none;font-weight:700}
+.alert{background:rgba(192,57,43,.1);border:1px solid var(--danger);border-radius:8px;padding:12px;font-size:12px;color:#e74c3c;margin-bottom:15px;display:none}
 .alert.show{display:block}
 
-/* SUCCESS */
-.success-screen{text-align:center;padding:60px 24px;position:relative;z-index:1}
-.sicon{font-size:80px;margin-bottom:24px;animation:pop .5s ease}
-@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
-.success-screen h2{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold2);margin-bottom:14px;letter-spacing:1px}
-.success-screen p{color:var(--gray);font-size:13px;line-height:2}
-.success-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto}
-
-/* SPINNER */
-.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(0,0,0,.2);border-top-color:var(--bg);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-.pb90{padding-bottom:90px}
-.screen{display:none;animation:fadeIn .3s ease}.screen.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.spinner {
+  display: inline-block; width: 18px; height: 18px;
+  border: 3px solid rgba(255,255,255,.3); border-radius: 50%;
+  border-top-color: #000; animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
 
 <div class="stars" id="stars"></div>
 
-<!-- HEADER -->
 <div class="header">
   <div class="hlogo">
-    <div class="hicon">🏠</div>
-    <div>
-      <div class="hname">БудЕксперт</div>
-      <div class="hphone">096 121 09 06</div>
-    </div>
+    <div class="hicon">👷</div>
+    <div class="hname">БудЕксперт</div>
   </div>
-  <div class="hbadge">ЗАЯВКА</div>
+  <div class="hbadge">ENGINEER</div>
 </div>
 
-<!-- PROGRESS -->
-<div class="progress-wrap">
-  <div class="progress-title" id="stepLabel">Ваші дані</div>
-  <div class="progress">
-    <div class="dot active" id="dot1">1</div>
-    <div class="pline" id="line1"></div>
-    <div class="dot" id="dot2">2</div>
-    <div class="pline" id="line2"></div>
-    <div class="dot" id="dot3">3</div>
-  </div>
-</div>
-
-<!-- ══ ЕКРАН 1 ══ -->
-<div class="screen active pb90" id="screen1">
-  <div class="section" style="margin-top:16px">
-    <div class="stitle">👤 Ваші дані</div>
-    <div class="field">
-      <label>ПІБ повністю *</label>
-      <input type="text" id="name" placeholder="Іваненко Іван Іванович" autocomplete="name">
+<div id="formContainer">
+  <div class="section">
+    <div class="stitle">Приєднайтесь до команди</div>
+    <div class="info-box">
+      <b>БудЕксперт</b> — це платформа, що об'єднує замовників та професійних геодезистів. 
+      Ми забезпечуємо потік заявок, ви забезпечуєте якість.
     </div>
-    <div class="field">
-      <label>Телефон *</label>
-      <input type="tel" id="phone" placeholder="+380960000000" maxlength="13" inputmode="tel">
+    
+    <div style="margin-bottom: 20px;">
+      <div class="list-item"><span class="list-dot">✓</span> <span>Вільний графік роботи</span></div>
+      <div class="list-item"><span class="list-dot">✓</span> <span>Заявки у вашому районі</span></div>
+      <div class="list-item"><span class="list-dot">✓</span> <span>Прозорі виплати</span></div>
     </div>
   </div>
 
   <div class="section">
-    <div class="stitle">🗺️ Об'єкт — Винос меж</div>
-    <div class="field">
-      <label>Кадастровий номер *</label>
-      <div class="kn-labels">
-        <span>КОАТУУ (10)</span>
-        <span>зона</span>
-        <span>квартал</span>
-        <span>ділянка</span>
-      </div>
-      <div class="kn-grid">
-        <input type="text" id="kn1" placeholder="3222487400" maxlength="10" inputmode="numeric">
-        <input type="text" id="kn2" placeholder="04" maxlength="2" inputmode="numeric">
-        <input type="text" id="kn3" placeholder="001" maxlength="3" inputmode="numeric">
-        <input type="text" id="kn4" placeholder="0022" maxlength="4" inputmode="numeric">
-      </div>
-      <div class="kn-hint">📌 Приклад: 3222487400 : 04 : 001 : 0022</div>
-    </div>
-    <div class="field">
-      <label>Адреса / населений пункт *</label>
-      <input type="text" id="address" placeholder="с. Назва, Фастівський р-н">
-    </div>
-    <div class="row2">
-      <div class="field">
-        <label>К-сть ділянок *</label>
-        <select id="parcels">
-          <option value="1">1 ділянка</option>
-          <option value="2">2 ділянки</option>
-          <option value="3">3 ділянки</option>
-          <option value="4+">4+</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Площа (га)</label>
-        <input type="text" id="area" placeholder="0.25" inputmode="decimal">
-      </div>
-    </div>
-    <div class="field">
-      <label>Коментар / побажання</label>
-      <textarea id="comment" rows="2" placeholder="Зручна дата виїзду, додаткові питання..."></textarea>
-    </div>
-  </div>
+    <div class="stitle">Анкета інженера</div>
+    
+    <div class="alert" id="errorAlert">Будь ласка, заповніть усі поля</div>
 
-  <div class="alert" id="alert1" style="margin:0 14px 14px">Заповніть усі обов'язкові поля (*)</div>
+    <div class="field">
+      <label>Ваше ім'я (ПІБ) *</label>
+      <input type="text" id="m_name" placeholder="Олександр">
+    </div>
 
-  <div class="sticky-btn">
-    <button class="btn btn-gold" style="flex:1" onclick="goStep2()">ДАЛІ → УМОВИ</button>
+    <div class="field">
+      <label>Ваш Telegram Username *</label>
+      <input type="text" id="m_user" placeholder="@username">
+    </div>
+
+    <div class="field">
+      <label>Контактний телефон *</label>
+      <input type="tel" id="m_phone" placeholder="+380..." maxlength="13">
+    </div>
+
+    <div class="field">
+      <label>Район роботи *</label>
+      <select id="m_district">
+        <option value="">Оберіть основний район...</option>
+        <option value="Обухівський">Обухівський</option>
+        <option value="Фастівський">Фастівський</option>
+        <option value="Білоцерківський">Білоцерківський</option>
+        <option value="Броварський">Броварський</option>
+        <option value="Бучанський">Бучанський</option>
+        <option value="Вишгородський">Вишгородський</option>
+        <option value="Бориспільський">Бориспільський</option>
+        <option value="Київський">Київ (+10км)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Послуги, які надаєте *</label>
+      <textarea id="m_services" rows="3" placeholder="Винос меж, Топозйомка М1:500..."></textarea>
+    </div>
+
+    <button class="btn" id="submitBtn" onclick="registerMaster()">СТАТИ ПАРТНЕРОМ</button>
   </div>
 </div>
 
-<!-- ══ ЕКРАН 2 ══ -->
-<div class="screen pb90" id="screen2">
-  <div class="section" style="margin-top:16px">
-    <div class="stitle">📋 Умови заявки</div>
-
-    <div class="info-box">
-      <b>БудЕксперт</b> здійснює пошук та підбір сертифікованих спеціалістів по Київській області. Безпосереднє виконання геодезичних робіт здійснюється сертифікованим підрядником (ФОП), з яким Замовник розраховується окремо на об'єкті.
-    </div>
-
-    <div class="red-box">
-      ⚠️ При скасуванні виїзду менш ніж за <b>24 години</b> — транспортні витрати не компенсуються.<br><br>
-      🚗 <b>Транспортні витрати</b> геодезиста не входять у вартість та оплачуються окремо.
-    </div>
-
-    <div class="gold-box">
-      📌 Після погодження ціни для <b>бронювання заявки</b> необхідно сплатити <b>30% від вартості</b> робіт на картку координатора.<br><br>
-      Решта суми сплачується виконавцю безпосередньо на об'єкті після виконання робіт.<br><br>
-      <b>+38 096 121 09 06 · @vitaliy_bud</b>
-    </div>
-
-    <div class="agree-box" id="agreeBox" onclick="toggleAgree()">
-      <div class="chk" id="chkIcon"></div>
-      <div class="agree-text">Я ознайомився(-лась) з умовами та <b>погоджуюся на виїзд геодезиста</b> після узгодження деталей з менеджером</div>
-    </div>
-
-    <div class="alert" id="alert2">Підтвердіть ознайомлення з умовами ☝️</div>
-  </div>
-
-  <div class="sticky-btn">
-    <button class="btn btn-ghost" onclick="goStep(1)">← НАЗАД</button>
-    <button class="btn btn-gold" onclick="goStep3()">ДАЛІ → ПІДСУМОК</button>
-  </div>
-</div>
-
-<!-- ══ ЕКРАН 3 ══ -->
-<div class="screen pb90" id="screen3">
-  <div class="section" style="margin-top:16px">
-    <div class="stitle">✅ Підсумок заявки</div>
-    <div id="summaryBox"></div>
-  </div>
-
-  <div class="alert" id="alert3" style="margin:0 14px 14px"></div>
-
-  <div class="sticky-btn">
-    <button class="btn btn-ghost" onclick="goStep(2)">← НАЗАД</button>
-    <button class="btn btn-gold" id="submitBtn" onclick="submitForm()">📨 НАДІСЛАТИ</button>
-  </div>
-</div>
-
-<!-- SUCCESS -->
-<div class="screen" id="screenSuccess">
-  <div class="success-screen">
-    <div class="sicon">🎉</div>
-    <h2>Заявку прийнято!</h2>
-    <div class="success-divider"></div>
-    <p>Дякуємо за звернення до БудЕксперт.<br>
-    Менеджер зв'яжеться з вами найближчим часом<br>
-    для узгодження вартості та дати виїзду.<br><br>
-    <strong style="color:var(--gold2);font-size:18px;letter-spacing:1px">+38 096 121 09 06</strong><br>
-    <span style="color:var(--gray);letter-spacing:.5px">Telegram: @vitaliy_bud</span><br><br>
-    <div style="margin-top:10px;padding:10px 16px;background:rgba(201,160,50,.1);border-radius:8px;border:1px solid rgba(201,160,50,.3)">
-      <span style="font-size:11px;color:var(--gray);letter-spacing:1px">НОМЕР ЗАЯВКИ: </span>
-      <span id="orderNum" style="color:var(--gold2);font-weight:800;letter-spacing:2px"></span>
-    </div></p>
-  </div>
+<div class="success-screen" id="successScreen">
+  <div class="s-icon">🚀</div>
+  <h2 style="font-family:'Cormorant Garamond', serif; color:var(--gold2); font-size:28px;">Заявку надіслано!</h2>
+  <div style="width:50px; height:1px; background:var(--gold); margin:20px auto;"></div>
+  <p style="font-size:14px; color:var(--gray); line-height:1.6;">
+    Ми отримали вашу анкету.<br>
+    Найближчим часом наш адміністратор зв'яжеться з вами в Telegram для підтвердження профілю.<br><br>
+    Після активації ви почнете отримувати запити на тендери.
+  </p>
 </div>
 
 <script>
-// ══════════════════════════════════════════════
-// НАЛАШТУВАННЯ — тільки URL скрипта!
-// Токен та ADMIN_ID захищені в Apps Script
-// ══════════════════════════════════════════════
 const APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycby1R1yA8WeSKXHED2a2BpSzwAP2Ve8x4AJ3jD8NSUwnMCUn_fuOc4PNAUf55hKPODhL/exec';
 
-// ЗІРКИ
+// Зірки
 (function(){
   const c = document.getElementById('stars');
-  for(let i = 0; i < 60; i++){
+  for(let i=0; i<40; i++){
     const s = document.createElement('div');
     s.className = 'star';
-    const sz = Math.random() * 2 + .5;
-    s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:${Math.random()*4}s`;
+    const sz = Math.random()*2;
+    s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*3}s`;
     c.appendChild(s);
   }
 })();
 
-let agreed = false;
-const stepLabels = ['','ВАШІ ДАНІ','УМОВИ','ВІДПРАВКА'];
-
-function goStep(n){
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(n === 'success' ? 'screenSuccess' : 'screen' + n).classList.add('active');
-  if(n !== 'success') updateProgress(n);
-  else document.querySelector('.progress-wrap').style.display = 'none';
-  window.scrollTo(0, 0);
-}
-
-function updateProgress(n){
-  for(let i = 1; i <= 3; i++){
-    const d = document.getElementById('dot' + i);
-    d.classList.remove('active','done');
-    if(i < n){ d.classList.add('done'); d.textContent = '✓'; }
-    else if(i === n){ d.classList.add('active'); d.textContent = i; }
-    else d.textContent = i;
-    if(i < 3) document.getElementById('line' + i).classList.toggle('done', i < n);
-  }
-  document.getElementById('stepLabel').textContent = stepLabels[n];
-}
-
-function validateKN(){
-  const k1 = v('kn1');
-  if(k1.length !== 10){ hl('kn1'); return false; }
-  if(!v('kn2')){ hl('kn2'); return false; }
-  if(!v('kn3')){ hl('kn3'); return false; }
-  if(!v('kn4')){ hl('kn4'); return false; }
-  return true;
-}
-
-function hl(id){
-  const el = document.getElementById(id);
-  el.style.borderColor = 'var(--danger)';
-  setTimeout(() => el.style.borderColor = '', 2000);
-  el.focus();
-}
-
-function goStep2(){
-  if(!v('name') || !v('phone') || !v('address')){
-    showAlert('alert1','Заповніть обов\'язкові поля (*)');
-    return;
-  }
-  if(!v('kn1')){
-    showAlert('alert1','Введіть кадастровий номер');
-    return;
-  }
-  if(!validateKN()){
-    showAlert('alert1','Перевірте кадастровий номер');
-    return;
-  }
-  hideAlert('alert1');
-  goStep(2);
-}
-
-function toggleAgree(){
-  agreed = !agreed;
-  document.getElementById('agreeBox').classList.toggle('on', agreed);
-  const c = document.getElementById('chkIcon');
-  c.classList.toggle('on', agreed);
-  c.textContent = agreed ? '✓' : '';
-  if(agreed) hideAlert('alert2');
-}
-
-function goStep3(){
-  if(!agreed){ showAlert('alert2'); return; }
-  hideAlert('alert2');
-  renderSummary();
-  goStep(3);
-}
-
-function renderSummary(){
-  const rows = [
-    ['👤 Замовник',           v('name')],
-    ['📞 Телефон',            v('phone')],
-    ['🗂 Кадастровий №',      getKN()],
-    ['📍 Адреса',             v('address')],
-    ['📦 Ділянок',            v('parcels') + (v('area') ? ', ' + v('area') + ' га' : '')],
-    ['💬 Коментар',           v('comment') || '—'],
-    ['💰 Вартість послуги',   'за домовленістю'],
-    ['🚗 Транспортні витрати','після узгодження'],
-  ];
-  document.getElementById('summaryBox').innerHTML = rows.map(([l, val]) =>
-    `<div class="sum-row"><span class="sum-l">${l}</span><span class="sum-r">${val}</span></div>`
-  ).join('');
-}
-
-// ══════════════════════════════════════════════
-// ВІДПРАВКА — тільки через Apps Script!
-// Apps Script зберігає в таблицю
-// і надсилає повідомлення адміну в Telegram
-// ══════════════════════════════════════════════
-async function submitForm(){
+async function registerMaster() {
   const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> НАДСИЛАЄМО...';
+  const alert = document.getElementById('errorAlert');
+  
+  const data = {
+    action: 'add_master',
+    name: v('m_name'),
+    username: v('m_user'),
+    phone: v('m_phone'),
+    district: v('m_district'),
+    services: v('m_services'),
+    tg_id: "FROM_WEB_" + Date.now() // Тимчасовий ID до зв'язки з ботом
+  };
 
-  const parcels = v('parcels') + (v('area') ? ', ' + v('area') + ' га' : '');
+  if(!data.name || !data.phone || !data.district || !data.services) {
+    alert.style.display = 'block';
+    return;
+  }
+  alert.style.display = 'none';
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> ОБРОБКА...';
 
   try {
-    const res = await fetch(APPS_SCRIPT, {
-      method:  'POST',
+    const response = await fetch(APPS_SCRIPT, {
+      method: 'POST',
+      mode: 'no-cors', // Важливо для Apps Script при прямих запитах з іншого домену
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        action:    'add_order',
-        tg_id:     0,
-        name:      v('name'),
-        phone:     v('phone'),
-        service:   '📐 Винос меж ділянки',
-        cadastral: getKN(),
-        city:      v('address'),
-        address:   v('address'),
-        district:  '',
-        parcels:   parcels,
-        comment:   v('comment') || '',
-      })
+      body: JSON.stringify(data)
     });
 
-    const data = await res.json();
+    // Оскільки ми використовуємо no-cors (через обмеження Google), 
+    // ми не отримаємо JSON відповідь напряму, але дані підуть в таблицю.
+    // Тому через секунду показуємо успіх.
+    setTimeout(() => {
+      document.getElementById('formContainer').style.display = 'none';
+      document.getElementById('successScreen').classList.add('active');
+      window.scrollTo(0,0);
+    }, 1500);
 
-    if(data.status === 'ok' || data.order_id){
-      document.getElementById('orderNum').textContent = data.order_id || 'BE0001';
-      goStep('success');
-    } else {
-      throw new Error(data.message || 'Помилка сервера');
-    }
-
-  } catch(e) {
-    showAlert('alert3', '⚠️ Помилка надсилання. Перевірте інтернет або зателефонуйте: 096 121 09 06');
+  } catch (e) {
+    console.error(e);
+    alert.textContent = "Помилка зв'язку. Спробуйте пізніше.";
+    alert.style.display = 'block';
     btn.disabled = false;
-    btn.innerHTML = '📨 НАДІСЛАТИ';
+    btn.innerHTML = 'СТАТИ ПАРТНЕРОМ';
   }
 }
 
-function getKN(){
-  const a=v('kn1'), b=v('kn2'), c=v('kn3'), d=v('kn4');
-  return a ? `${a}:${b}:${c}:${d}` : '—';
-}
+function v(id){ return document.getElementById(id).value.trim(); }
 
-function v(id){ return document.getElementById(id)?.value.trim() || ''; }
-
-function showAlert(id, msg){
-  const el = document.getElementById(id);
-  if(msg) el.textContent = msg;
-  el.classList.add('show');
-  el.scrollIntoView({behavior:'smooth', block:'nearest'});
-}
-
-function hideAlert(id){
-  document.getElementById(id).classList.remove('show');
-}
-
-// ── Автоперехід між полями КН ──
-const knLens = [10, 2, 3, 4];
-['kn1','kn2','kn3','kn4'].forEach((id, i) => {
-  document.getElementById(id).addEventListener('input', function(){
-    this.value = this.value.replace(/\D/g,'');
-    if(this.value.length >= knLens[i] && i < 3)
-      document.getElementById(['kn2','kn3','kn4'][i]).focus();
-  });
-});
-
-// ── Форматування телефону ──
-document.getElementById('phone').addEventListener('input', function(){
-  let val = this.value.replace(/\D/g,'');
-  if(val.startsWith('380'))     val = '+' + val;
-  else if(val.startsWith('80')) val = '+3' + val;
-  else if(val.startsWith('0'))  val = '+38' + val;
-  if(val.length > 13) val = val.slice(0, 13);
-  this.value = val;
+// Форматування телефону
+document.getElementById('m_phone').addEventListener('input', function(e){
+  let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})/);
+  e.target.value = !x[2] ? x[1] : '+' + x[1] + x[2] + x[3] + x[4];
 });
 </script>
+
 </body>
 </html>
